@@ -64,10 +64,10 @@
 			children = (
 				AF23C7D324EE059E0081B805 /* Food_Truck_TrackR.xcdatamodeld */,
 				AF23C7E124EE0F2D0081B805 /* Model */,
-				AF23C7E424EE0F670081B805 /* Resources */,
-				AF23C7E524EE0FCF0081B805 /* Storyboards */,
-				AF23C7E224EE0F390081B805 /* ViewControllers */,
 				AF23C7E324EE0F5E0081B805 /* Views */,
+				AF23C7E224EE0F390081B805 /* ViewControllers */,
+				AF23C7E524EE0FCF0081B805 /* Storyboards */,
+				AF23C7E424EE0F670081B805 /* Resources */,
 			);
 			path = "Food Truck TrackR";
 			sourceTree = "<group>";
