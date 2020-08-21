@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4459683B24EF684200AA9C9B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459683A24EF684200AA9C9B /* CoreDataStack.swift */; };
 		68852DE624EE20B4004DAC26 /* TruckDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68852DE524EE20B4004DAC26 /* TruckDetailVC.storyboard */; };
 		68852DE824EF53D4004DAC26 /* Truck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852DE724EF53D4004DAC26 /* Truck.swift */; };
 		68852DED24EF5D98004DAC26 /* Diner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852DEC24EF5D98004DAC26 /* Diner.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4459683A24EF684200AA9C9B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		68852DE524EE20B4004DAC26 /* TruckDetailVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TruckDetailVC.storyboard; sourceTree = "<group>"; };
 		68852DE724EF53D4004DAC26 /* Truck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Truck.swift; path = "Food Truck TrackR/Storyboards/Truck.swift"; sourceTree = SOURCE_ROOT; };
 		68852DEC24EF5D98004DAC26 /* Diner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diner.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4459683924EF682100AA9C9B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4459683A24EF684200AA9C9B /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		AF23C7BE24EE059E0081B805 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				AF23C7D324EE059E0081B805 /* Food_Truck_TrackR.xcdatamodeld */,
+				4459683924EF682100AA9C9B /* CoreData */,
 				AF23C7E124EE0F2D0081B805 /* Model */,
 				AF23C7E324EE0F5E0081B805 /* Views */,
 				AF23C7E224EE0F390081B805 /* ViewControllers */,
@@ -205,6 +216,7 @@
 				AF23C7D524EE059E0081B805 /* Food_Truck_TrackR.xcdatamodeld in Sources */,
 				AF23C7EB24EE10EB0081B805 /* TruckDetailViewController.swift in Sources */,
 				AF23C7CB24EE059E0081B805 /* AppDelegate.swift in Sources */,
+				4459683B24EF684200AA9C9B /* CoreDataStack.swift in Sources */,
 				AF23C7CD24EE059E0081B805 /* SceneDelegate.swift in Sources */,
 				68852DEF24EF5F16004DAC26 /* Operator.swift in Sources */,
 				AF23C7E924EE10CD0081B805 /* MapViewViewController.swift in Sources */,
