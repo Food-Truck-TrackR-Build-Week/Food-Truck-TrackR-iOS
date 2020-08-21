@@ -12,6 +12,9 @@
 		68852DE824EF53D4004DAC26 /* Truck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852DE724EF53D4004DAC26 /* Truck.swift */; };
 		68852DED24EF5D98004DAC26 /* Diner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852DEC24EF5D98004DAC26 /* Diner.swift */; };
 		68852DEF24EF5F16004DAC26 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852DEE24EF5F16004DAC26 /* Operator.swift */; };
+		68852DF424EF69D3004DAC26 /* MapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852DF324EF69D3004DAC26 /* MapTableViewController.swift */; };
+		68852DF824EF6AA3004DAC26 /* ProfileVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68852DF724EF6AA3004DAC26 /* ProfileVC.storyboard */; };
+		68852DFA24EF6F09004DAC26 /* TruckRatingVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */; };
 		AF23C7CB24EE059E0081B805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7CA24EE059E0081B805 /* AppDelegate.swift */; };
 		AF23C7CD24EE059E0081B805 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7CC24EE059E0081B805 /* SceneDelegate.swift */; };
 		AF23C7D224EE059E0081B805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF23C7D024EE059E0081B805 /* Main.storyboard */; };
@@ -19,7 +22,6 @@
 		AF23C7D724EE05A00081B805 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF23C7D624EE05A00081B805 /* Assets.xcassets */; };
 		AF23C7DA24EE05A00081B805 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF23C7D824EE05A00081B805 /* LaunchScreen.storyboard */; };
 		AF23C7E724EE10B60081B805 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7E624EE10B60081B805 /* LogInViewController.swift */; };
-		AF23C7E924EE10CD0081B805 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7E824EE10CD0081B805 /* MapViewViewController.swift */; };
 		AF23C7EB24EE10EB0081B805 /* TruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,9 @@
 		68852DE724EF53D4004DAC26 /* Truck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Truck.swift; path = "Food Truck TrackR/Storyboards/Truck.swift"; sourceTree = SOURCE_ROOT; };
 		68852DEC24EF5D98004DAC26 /* Diner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diner.swift; sourceTree = "<group>"; };
 		68852DEE24EF5F16004DAC26 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
+		68852DF324EF69D3004DAC26 /* MapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewController.swift; sourceTree = "<group>"; };
+		68852DF724EF6AA3004DAC26 /* ProfileVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileVC.storyboard; sourceTree = "<group>"; };
+		68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TruckRatingVC.storyboard; sourceTree = "<group>"; };
 		AF23C7C724EE059E0081B805 /* Food Truck TrackR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Truck TrackR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF23C7CA24EE059E0081B805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF23C7CC24EE059E0081B805 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +43,6 @@
 		AF23C7D924EE05A00081B805 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF23C7DB24EE05A00081B805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF23C7E624EE10B60081B805 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		AF23C7E824EE10CD0081B805 /* MapViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
 		AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +57,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68852DF024EF6215004DAC26 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelController;
+			sourceTree = "<group>";
+		};
 		4459683924EF682100AA9C9B /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +94,7 @@
 				AF23C7D324EE059E0081B805 /* Food_Truck_TrackR.xcdatamodeld */,
 				4459683924EF682100AA9C9B /* CoreData */,
 				AF23C7E124EE0F2D0081B805 /* Model */,
+				68852DF024EF6215004DAC26 /* ModelController */,
 				AF23C7E324EE0F5E0081B805 /* Views */,
 				AF23C7E224EE0F390081B805 /* ViewControllers */,
 				AF23C7E524EE0FCF0081B805 /* Storyboards */,
@@ -105,8 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				AF23C7E624EE10B60081B805 /* LogInViewController.swift */,
-				AF23C7E824EE10CD0081B805 /* MapViewViewController.swift */,
 				AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */,
+				68852DF324EF69D3004DAC26 /* MapTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -135,6 +147,8 @@
 				AF23C7D024EE059E0081B805 /* Main.storyboard */,
 				AF23C7D824EE05A00081B805 /* LaunchScreen.storyboard */,
 				68852DE524EE20B4004DAC26 /* TruckDetailVC.storyboard */,
+				68852DF724EF6AA3004DAC26 /* ProfileVC.storyboard */,
+				68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -201,6 +215,8 @@
 				AF23C7DA24EE05A00081B805 /* LaunchScreen.storyboard in Resources */,
 				AF23C7D724EE05A00081B805 /* Assets.xcassets in Resources */,
 				AF23C7D224EE059E0081B805 /* Main.storyboard in Resources */,
+				68852DFA24EF6F09004DAC26 /* TruckRatingVC.storyboard in Resources */,
+				68852DF824EF6AA3004DAC26 /* ProfileVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,8 +235,8 @@
 				4459683B24EF684200AA9C9B /* CoreDataStack.swift in Sources */,
 				AF23C7CD24EE059E0081B805 /* SceneDelegate.swift in Sources */,
 				68852DEF24EF5F16004DAC26 /* Operator.swift in Sources */,
-				AF23C7E924EE10CD0081B805 /* MapViewViewController.swift in Sources */,
 				68852DE824EF53D4004DAC26 /* Truck.swift in Sources */,
+				68852DF424EF69D3004DAC26 /* MapTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
