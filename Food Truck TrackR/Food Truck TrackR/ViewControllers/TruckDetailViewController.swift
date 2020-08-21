@@ -10,12 +10,26 @@ import UIKit
 
 class TruckDetailViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    @IBOutlet var foodTruckNameLabel: UILabel!
+    @IBOutlet var firstReviewLabel: UILabel!
+    @IBOutlet var secondReviewLabel: UILabel!
+    @IBOutlet var thirdReviewLabel: UILabel!
+    @IBOutlet var favoriteButton: UIButton!
+
+    // MARK: - Properites
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+
+    // MARK: - IBActions
+    @IBAction func favoriteButtonTapped(_ sender: Any) {
+        favoriteButton.setImage(UIImage(named: "heart.fill"), for: .normal)
+    }
+
 
     /*
     // MARK: - Navigation

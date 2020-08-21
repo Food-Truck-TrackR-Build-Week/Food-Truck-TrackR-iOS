@@ -22,6 +22,14 @@
             </objects>
             <point key="canvasLocation" x="65" y="143"/>
         </scene>
+        <!--TruckDetailVC-->
+        <scene sceneID="GkI-Ue-edD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TruckDetailVC" id="JZ7-Gj-hlu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="39r-B9-bl1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="524"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="P5p-lb-hbp">
             <objects>
