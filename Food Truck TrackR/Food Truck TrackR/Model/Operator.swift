@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Operator {
+struct OperatorRepresentation {
 
     let userId: Int
     let username: String

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct Truck {
+struct TruckRepresentation {
 
     let id: Int
     let imageOfTruck: UIImage

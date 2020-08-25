@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Diner {
+struct DinerRepresentation {
 
     let userId: Int
     let username: String

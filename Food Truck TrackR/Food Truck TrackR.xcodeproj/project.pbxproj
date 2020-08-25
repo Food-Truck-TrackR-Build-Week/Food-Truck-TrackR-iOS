@@ -23,6 +23,8 @@
 		AF23C7DA24EE05A00081B805 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF23C7D824EE05A00081B805 /* LaunchScreen.storyboard */; };
 		AF23C7E724EE10B60081B805 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7E624EE10B60081B805 /* LogInViewController.swift */; };
 		AF23C7EB24EE10EB0081B805 /* TruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */; };
+		C2E9337D24F088E700B42985 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9337C24F088E700B42985 /* ProfileViewController.swift */; };
+		C2E9337F24F08D0D00B42985 /* TruckRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E9337E24F08D0D00B42985 /* TruckRatingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		AF23C7DB24EE05A00081B805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF23C7E624EE10B60081B805 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckDetailViewController.swift; sourceTree = "<group>"; };
+		C2E9337C24F088E700B42985 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C2E9337E24F08D0D00B42985 /* TruckRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckRatingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,19 +61,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		68852DF024EF6215004DAC26 /* ModelController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ModelController;
-			sourceTree = "<group>";
-		};
 		4459683924EF682100AA9C9B /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				4459683A24EF684200AA9C9B /* CoreDataStack.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		68852DF024EF6215004DAC26 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelController;
 			sourceTree = "<group>";
 		};
 		AF23C7BE24EE059E0081B805 = {
@@ -119,6 +123,8 @@
 				AF23C7E624EE10B60081B805 /* LogInViewController.swift */,
 				AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */,
 				68852DF324EF69D3004DAC26 /* MapTableViewController.swift */,
+				C2E9337C24F088E700B42985 /* ProfileViewController.swift */,
+				C2E9337E24F08D0D00B42985 /* TruckRatingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -230,9 +236,11 @@
 				AF23C7E724EE10B60081B805 /* LogInViewController.swift in Sources */,
 				68852DED24EF5D98004DAC26 /* Diner.swift in Sources */,
 				AF23C7D524EE059E0081B805 /* Food_Truck_TrackR.xcdatamodeld in Sources */,
+				C2E9337F24F08D0D00B42985 /* TruckRatingViewController.swift in Sources */,
 				AF23C7EB24EE10EB0081B805 /* TruckDetailViewController.swift in Sources */,
 				AF23C7CB24EE059E0081B805 /* AppDelegate.swift in Sources */,
 				4459683B24EF684200AA9C9B /* CoreDataStack.swift in Sources */,
+				C2E9337D24F088E700B42985 /* ProfileViewController.swift in Sources */,
 				AF23C7CD24EE059E0081B805 /* SceneDelegate.swift in Sources */,
 				68852DEF24EF5F16004DAC26 /* Operator.swift in Sources */,
 				68852DE824EF53D4004DAC26 /* Truck.swift in Sources */,
@@ -381,13 +389,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37Y3Y57488;
+				DEVELOPMENT_TEAM = XUQFMNQ224;
 				INFOPLIST_FILE = "Food Truck TrackR/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Mariscal-Development.Food-Truck-TrackR";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lambda-build-week.Food-Truck-TrackR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -399,13 +408,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37Y3Y57488;
+				DEVELOPMENT_TEAM = XUQFMNQ224;
 				INFOPLIST_FILE = "Food Truck TrackR/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Mariscal-Development.Food-Truck-TrackR";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lambda-build-week.Food-Truck-TrackR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

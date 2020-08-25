@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EeD-Ck-omF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--TruckDetailVC-->
         <scene sceneID="GkI-Ue-edD">
             <objects>
-                <viewControllerPlaceholder storyboardName="TruckDetailVC" id="JZ7-Gj-hlu" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="TruckDetailVC" storyboardName="TruckDetailVC" id="JZ7-Gj-hlu" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="mWB-mx-eur"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39r-B9-bl1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -19,7 +19,7 @@
         <!--ProfileVC-->
         <scene sceneID="UP4-P5-O1R">
             <objects>
-                <viewControllerPlaceholder storyboardName="ProfileVC" id="ur8-nN-TnP" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="profileVC" storyboardName="ProfileVC" id="ur8-nN-TnP" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="08E-Q6-uA7"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Xj-68-VuU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -47,7 +47,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="JZ7-Gj-hlu" kind="show" id="OgG-ML-CJz"/>
+                                    <segue destination="JZ7-Gj-hlu" kind="show" identifier="ShowProfile" id="OgG-ML-CJz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -59,10 +59,13 @@
                     <navigationItem key="navigationItem" id="SqA-ua-mnb">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="person.crop.circle" catalog="system" id="f5u-D3-up2">
                             <connections>
-                                <segue destination="ur8-nN-TnP" kind="show" id="I1P-v2-4u1"/>
+                                <segue destination="ur8-nN-TnP" kind="show" identifier="ShowProfile" id="I1P-v2-4u1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="FP5-Nq-xYg" id="Jy5-7w-IU8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oim-TT-Tkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,6 +91,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+        <image name="person.crop.circle" catalog="system" width="64" height="60"/>
     </resources>
 </document>
