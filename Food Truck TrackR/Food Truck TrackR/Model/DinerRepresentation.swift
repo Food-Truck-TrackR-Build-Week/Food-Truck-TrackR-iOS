@@ -14,6 +14,6 @@ struct DinerRepresentation: Codable {
     var username: String
     var password: String
     var email: String
-    var favoriteTrucks: String?
+    var favoriteTrucks: [TruckRepresentation]?
     var location: String?
 }

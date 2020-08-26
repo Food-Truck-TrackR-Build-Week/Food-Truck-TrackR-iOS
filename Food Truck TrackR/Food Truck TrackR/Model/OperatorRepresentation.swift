@@ -14,5 +14,5 @@ struct OperatorRepresentation: Codable {
     var username: String
     var password: String
     var email: String
-    var trucksOwned: String?
+    var trucksOwned: [TruckRepresentation]?
 }

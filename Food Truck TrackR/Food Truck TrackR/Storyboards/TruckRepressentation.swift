@@ -9,14 +9,14 @@
 import Foundation
 
 struct TruckRepresentation: Codable {
-    var identifier: String
-    var operatorID: Double
+    var identifier: Int
+    var operatorID: Int
     var name: String
-    var imageOfTruck: String //should this be of type URL?
+    var imageOfTruck: String?
     var location: String
-    var cuisineType: String?
-    var menu: String?
+    var cuisineType: String
+    var menu: [MenuRepresentation]?
     var departureTime: Date
-    var customerRating: Double?
+    var customerRating: [Double]?
     var customerRatingAVG: Double
 }
