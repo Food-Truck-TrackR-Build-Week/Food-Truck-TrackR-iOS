@@ -9,10 +9,10 @@
 import Foundation
 
 struct MenuRepresentation: Codable {
-    var identifier: String
-    var menuID: Double
+    var identifier: Int
+    var menuID: Int
     var itemName: String
     var itemDescription: String
     var itemPrice: Double
-    var itemPhotos: String?
+    var itemPhotos: [String]?
 }

@@ -14,21 +14,21 @@ extension Menu {
     var menuRepresentation: MenuRepresentation? {
         guard let itemName = itemName, let itemDescription = itemDescription, let itemPhotos = itemPhotos else {return nil}
         
-        return MenuRepresentation(identifier: identifier?.uuidString ?? "",
-                                  menuID: menuID,
+        return MenuRepresentation(identifier: Int(identifier),
+                                  menuID: Int(menuID),
                                   itemName: itemName,
                                   itemDescription: itemDescription,
                                   itemPrice: itemPrice,
                                   itemPhotos: itemPhotos)
     }
     
-    convenience init(identifier: UUID = UUID(),
-                     menuID: Double,
+    convenience init(identifier: Int64,
+                     menuID: Int64,
                      itemName: String,
                      itemDescription: String,
                      itemPrice: Double,
-                     itemPhotos: String? = nil,
-                     context: NSManagedObjectContext = CoreDataStack.shared.menuContext) {
+                     itemPhotos: [String]? = nil,
+                     context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.identifier = identifier
         self.menuID = menuID
@@ -38,11 +38,11 @@ extension Menu {
         self.itemPhotos = itemPhotos
     }
     
-    @discardableResult convenience init?(menuRepresentation: MenuRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.menuContext) {
-        guard let itemPhotos = menuRepresentation.itemPhotos, let identifier = UUID(uuidString: menuRepresentation.identifier) else {return nil}
+    @discardableResult convenience init?(menuRepresentation: MenuRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        guard let itemPhotos = menuRepresentation.itemPhotos else {return nil}
         
-        self.init(identifier: identifier,
-                  menuID: menuRepresentation.menuID,
+        self.init(identifier: Int64(menuRepresentation.identifier),
+                  menuID: Int64(menuRepresentation.menuID),
                   itemName: menuRepresentation.itemName,
                   itemDescription: menuRepresentation.itemDescription,
                   itemPrice: menuRepresentation.itemPrice,
