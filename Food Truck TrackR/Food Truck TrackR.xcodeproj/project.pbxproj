@@ -22,6 +22,9 @@
 		68852DFA24EF6F09004DAC26 /* TruckRatingVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */; };
 		7B0F3BDE24F63A9C00273A0A /* String+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F3BDD24F63A9C00273A0A /* String+Keys.swift */; };
 		7B0F3BE024F63AAE00273A0A /* TextWithTruck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B0F3BDF24F63AAE00273A0A /* TextWithTruck.png */; };
+		7B0F3BE524F63BD700273A0A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F3BE224F63BD600273A0A /* LogInViewController.swift */; };
+		7B0F3BE624F63BD700273A0A /* ChooseUserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F3BE324F63BD700273A0A /* ChooseUserTypeViewController.swift */; };
+		7B0F3BE724F63BD700273A0A /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F3BE424F63BD700273A0A /* CreateAccountViewController.swift */; };
 		A4FC305F24F5F16D00E1646C /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FC305E24F5F16D00E1646C /* NetworkController.swift */; };
 		A4FC306124F5F38900E1646C /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FC306024F5F38900E1646C /* APIController.swift */; };
 		AF23C7CB24EE059E0081B805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7CA24EE059E0081B805 /* AppDelegate.swift */; };
@@ -50,6 +53,9 @@
 		68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TruckRatingVC.storyboard; sourceTree = "<group>"; };
 		7B0F3BDD24F63A9C00273A0A /* String+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Keys.swift"; sourceTree = "<group>"; };
 		7B0F3BDF24F63AAE00273A0A /* TextWithTruck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextWithTruck.png; sourceTree = "<group>"; };
+		7B0F3BE224F63BD600273A0A /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		7B0F3BE324F63BD700273A0A /* ChooseUserTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUserTypeViewController.swift; sourceTree = "<group>"; };
+		7B0F3BE424F63BD700273A0A /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		A4FC305E24F5F16D00E1646C /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		A4FC306024F5F38900E1646C /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AF23C7C724EE059E0081B805 /* Food Truck TrackR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Truck TrackR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +106,16 @@
 				7B0F3BDF24F63AAE00273A0A /* TextWithTruck.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		7B0F3BE124F63BC400273A0A /* User Setup */ = {
+			isa = PBXGroup;
+			children = (
+				7B0F3BE324F63BD700273A0A /* ChooseUserTypeViewController.swift */,
+				7B0F3BE424F63BD700273A0A /* CreateAccountViewController.swift */,
+				7B0F3BE224F63BD600273A0A /* LogInViewController.swift */,
+			);
+			path = "User Setup";
 			sourceTree = "<group>";
 		};
 		A4FC305D24F5F14D00E1646C /*  Networking */ = {
@@ -157,6 +173,7 @@
 		AF23C7E224EE0F390081B805 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7B0F3BE124F63BC400273A0A /* User Setup */,
 				AF23C7E624EE10B60081B805 /* LogInViewController.swift */,
 				AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */,
 				68852DF324EF69D3004DAC26 /* MapTableViewController.swift */,
@@ -271,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B0F3BE724F63BD700273A0A /* CreateAccountViewController.swift in Sources */,
 				A4FC305F24F5F16D00E1646C /* NetworkController.swift in Sources */,
 				AF23C7E724EE10B60081B805 /* LogInViewController.swift in Sources */,
 				44C9EEC224F3D0D0008094AE /* Menu+Conveniece.swift in Sources */,
@@ -285,9 +303,11 @@
 				A4FC306124F5F38900E1646C /* APIController.swift in Sources */,
 				4459683D24F2FA4600AA9C9B /* Diner+Convenience.swift in Sources */,
 				44C9EEC424F3D15B008094AE /* MenuRepresentation.swift in Sources */,
+				7B0F3BE624F63BD700273A0A /* ChooseUserTypeViewController.swift in Sources */,
 				68852DEF24EF5F16004DAC26 /* OperatorRepresentation.swift in Sources */,
 				68852DE824EF53D4004DAC26 /* TruckRepressentation.swift in Sources */,
 				68852DF424EF69D3004DAC26 /* MapTableViewController.swift in Sources */,
+				7B0F3BE524F63BD700273A0A /* LogInViewController.swift in Sources */,
 				44C9EEC024F3D0BC008094AE /* Operator+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

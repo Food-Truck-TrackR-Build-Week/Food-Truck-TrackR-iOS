@@ -1,0 +1,40 @@
+//
+//  ChooseUserTypeViewController.swift
+//  Food Truck TrackR
+//
+//  Created by Waseem Idelbi on 8/25/20.
+//  Copyright © 2020 Juan M Mariscal. All rights reserved.
+//
+
+import UIKit
+
+enum UserType: String {
+    case  `operator`  =  "Operator"
+    case   diner      =  "Diner"
+}
+class ChooseUserTypeViewController: UIViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let loginVC = segue.destination as! LogInViewController
+        
+        if segue.identifier == .operatorLoginSegue {
+            loginVC.userType = .operator
+            
+        } else if segue.identifier == .dinerLoginSegue {
+            loginVC.userType = .diner
+            
+        }
+        
+    }
+    
+} //End of class
+
+extension ChooseUserTypeViewController: UIAdaptivePresentationControllerDelegate {
+    
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        let alert = UIAlertController(title: "Please sign in or create an account", message: "In order to use this app, you must either create an account, or sign in to an existing one", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+    }
+    
+}
