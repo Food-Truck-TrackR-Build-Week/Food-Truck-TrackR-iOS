@@ -25,6 +25,7 @@
 		7B0F3BE524F63BD700273A0A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F3BE224F63BD600273A0A /* LogInViewController.swift */; };
 		7B0F3BE624F63BD700273A0A /* ChooseUserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F3BE324F63BD700273A0A /* ChooseUserTypeViewController.swift */; };
 		7B0F3BE724F63BD700273A0A /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F3BE424F63BD700273A0A /* CreateAccountViewController.swift */; };
+		7B0F3BE924F63C3700273A0A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0F3BE824F63C3700273A0A /* Login.storyboard */; };
 		A4FC305F24F5F16D00E1646C /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FC305E24F5F16D00E1646C /* NetworkController.swift */; };
 		A4FC306124F5F38900E1646C /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FC306024F5F38900E1646C /* APIController.swift */; };
 		AF23C7CB24EE059E0081B805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7CA24EE059E0081B805 /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 		7B0F3BE224F63BD600273A0A /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		7B0F3BE324F63BD700273A0A /* ChooseUserTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUserTypeViewController.swift; sourceTree = "<group>"; };
 		7B0F3BE424F63BD700273A0A /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		7B0F3BE824F63C3700273A0A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		A4FC305E24F5F16D00E1646C /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		A4FC306024F5F38900E1646C /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AF23C7C724EE059E0081B805 /* Food Truck TrackR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Truck TrackR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +206,7 @@
 		AF23C7E524EE0FCF0081B805 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				7B0F3BE824F63C3700273A0A /* Login.storyboard */,
 				AF23C7D024EE059E0081B805 /* Main.storyboard */,
 				AF23C7D824EE05A00081B805 /* LaunchScreen.storyboard */,
 				68852DE524EE20B4004DAC26 /* TruckDetailVC.storyboard */,
@@ -271,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B0F3BE924F63C3700273A0A /* Login.storyboard in Resources */,
 				68852DE624EE20B4004DAC26 /* TruckDetailVC.storyboard in Resources */,
 				AF23C7DA24EE05A00081B805 /* LaunchScreen.storyboard in Resources */,
 				7B0F3BE024F63AAE00273A0A /* TextWithTruck.png in Resources */,
