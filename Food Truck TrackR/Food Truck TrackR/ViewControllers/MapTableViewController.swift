@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-
+// NO
 class customPin: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
