@@ -21,6 +21,7 @@ enum NetworkingError: Error {
     case noData
     case badData
     case decodingError
+    case encodingError
 }
 
 class NetworkingController {
@@ -250,6 +251,274 @@ class NetworkingController {
                 completion(.success(trucks))
             } catch {
                 completion(.failure(.decodingError))
+            }
+        }.resume()
+    }
+    
+    //MARK: - DELETE Requests
+    
+    //deletes the truck with the given id
+    func deleteTruck(for id: Int, completion: @escaping (Error?) -> Void) {
+        let reqEndpoint = "/api/trucks/'\(id)"
+        let url = baseUrl.appendingPathComponent(reqEndpoint)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.delete.rawValue
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if error != nil {
+                completion(error)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                switch response.statusCode {
+                case 200:
+                    print("Succeeded: Truck with ID: \(id) deleted successfully.")
+                    completion(nil)
+                case 400:
+                    print("400 Error: Bad Request")
+                    completion(error)
+                case 403:
+                    print("403 Error: Forbidden")
+                    completion(error)
+                case 404:
+                    print("404 Error: Not Found")
+                    completion(error)
+                default:
+                    print("\(response.statusCode) Error")
+                    completion(error)
+                }
+            }
+        }.resume()
+    }
+    
+    //deletes the customerRating with the given ratingId from the truck with the given truckId
+    func deleteTruckRating(for truckID: Int, with ratingID: Int, completion: @escaping (Error?) -> Void) {
+        let reqEndpoint = "/api/trucks/:\(truckID)/customerRatings/:\(ratingID)"
+        let url = baseUrl.appendingPathComponent(reqEndpoint)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.delete.rawValue
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if error != nil {
+                completion(error)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                switch response.statusCode {
+                case 200:
+                    print("Succeeded: Rating with ID: \(ratingID), for truck with ID: \(truckID) deleted successfully.")
+                    completion(nil)
+                case 400:
+                    print("400 Error: Bad Request")
+                    completion(error)
+                case 403:
+                    print("403 Error: Forbidden")
+                    completion(error)
+                case 404:
+                    print("404 Error: Not Found")
+                    completion(error)
+                default:
+                    print("\(response.statusCode) Error")
+                    completion(error)
+                }
+            }
+        }.resume()
+    }
+    
+    //removes the menuItem with menuItemId from the menu with the menuId
+    func removeMenuItem(for menuID: Int, with menuItemID: Int, completion: @escaping (Error?) -> Void) {
+        let reqEndpoint = "/api/menus/:\(menuID)/menuItems/:\(menuItemID)"
+        let url = baseUrl.appendingPathComponent(reqEndpoint)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.delete.rawValue
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if error != nil {
+                completion(error)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                switch response.statusCode {
+                case 200:
+                    print("Succeeded: Menu Item with ID: \(menuItemID), for Menu with ID: \(menuID) deleted successfully.")
+                    completion(nil)
+                case 400:
+                    print("400 Error: Bad Request")
+                    completion(error)
+                case 403:
+                    print("403 Error: Forbidden")
+                    completion(error)
+                case 404:
+                    print("404 Error: Not Found")
+                    completion(error)
+                default:
+                    print("\(response.statusCode) Error")
+                    completion(error)
+                }
+            }
+        }.resume()
+    }
+    
+    //removes a url (string) from the itemPhotos array for the menuItem with the given id
+    func removeMenuItemPhoto(for menuID: Int, with menuItemID: Int, with photoUrl: String, completion: @escaping (Result<[String],NetworkingError>) -> Void) {
+        let reqEndpoint = "/api/menus/:\(menuID)/menuItems/:\(menuItemID)/itemPhotos"
+        let url = baseUrl.appendingPathComponent(reqEndpoint)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.delete.rawValue
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            let jsonBody = try jsonEncoder.encode(photoUrl)
+            request.httpBody = jsonBody
+        } catch {
+            completion(.failure(.encodingError))
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                print(error!)
+                completion(.failure(.badAuth))
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                switch response.statusCode {
+                case 200:
+                    print("Succeeded: Menu Item with ID: \(menuItemID), for Menu with ID: \(menuID) deleted successfully.")
+                case 400:
+                    print("400 Error: Bad Request")
+                    completion(.failure(.badAuth))
+                case 403:
+                    print("403 Error: Forbidden")
+                    completion(.failure(.badAuth))
+                case 404:
+                    print("404 Error: Not Found")
+                    completion(.failure(.badAuth))
+                default:
+                    print("\(response.statusCode) Error")
+                    completion(.failure(.badAuth))
+                }
+            }
+
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            do {
+                let itemPhotos = try self.jsonDecoder.decode([String].self, from: data)
+                completion(.success(itemPhotos))
+            } catch {
+                completion(.failure(.decodingError))
+                return
+            }
+        }.resume()
+    }
+    
+    //deletes the customerRating with the given ratingId from the menuItem with the given menuItemId
+    func deleteMenuItemRating(for menuItemID: Int, with ratingID: Int, completion: @escaping (Error?) -> Void) {
+        let reqEndpoint = "/api/menuItems/:\(menuItemID)/customerRatings/:\(ratingID)"
+        let url = baseUrl.appendingPathComponent(reqEndpoint)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.delete.rawValue
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) { (_, response, error) in
+            if error != nil {
+                completion(error)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                switch response.statusCode {
+                case 200:
+                    print("Succeeded: Rating with ID: \(ratingID), for MenuItem with ID: \(menuItemID) deleted successfully.")
+                    completion(nil)
+                case 400:
+                    print("400 Error: Bad Request")
+                    completion(error)
+                case 403:
+                    print("403 Error: Forbidden")
+                    completion(error)
+                case 404:
+                    print("404 Error: Not Found")
+                    completion(error)
+                default:
+                    print("\(response.statusCode) Error")
+                    completion(error)
+                }
+            }
+        }.resume()
+    }
+    
+    //deletes a truck from the array of favoriteTrucks of the diner with the given id
+    func deleteDinerFavoriteTruck(for dinerID: Int, with truckID: Int, completion: @escaping (Result<[TruckRepresentation], NetworkingError>) -> Void) {
+        let reqEndpoint = "/api/diners/:\(dinerID)/favoriteTrucks"
+        let url = baseUrl.appendingPathComponent(reqEndpoint)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.delete.rawValue
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            let jsonBody = try jsonEncoder.encode(truckID)
+            request.httpBody = jsonBody
+        } catch {
+            completion(.failure(.encodingError))
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil {
+                completion(.failure(.badAuth))
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                switch response.statusCode {
+                case 200:
+                    print("Succeeded: Truck with ID: \(truckID), for Diner with ID: \(dinerID) deleted successfully.")
+                case 400:
+                    print("400 Error: Bad Request")
+                    completion(.failure(.badAuth))
+                case 403:
+                    print("403 Error: Forbidden")
+                    completion(.failure(.badAuth))
+                case 404:
+                    print("404 Error: Not Found")
+                    completion(.failure(.badAuth))
+                default:
+                    print("\(response.statusCode) Error")
+                    completion(.failure(.badAuth))
+                }
+            }
+            
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            do {
+                let trucks = try self.jsonDecoder.decode([TruckRepresentation].self, from: data)
+                completion(.success(trucks))
+            } catch {
+                completion(.failure(.decodingError))
+                return
             }
         }.resume()
     }
