@@ -20,6 +20,8 @@
 		68852DF424EF69D3004DAC26 /* MapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852DF324EF69D3004DAC26 /* MapTableViewController.swift */; };
 		68852DF824EF6AA3004DAC26 /* ProfileVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68852DF724EF6AA3004DAC26 /* ProfileVC.storyboard */; };
 		68852DFA24EF6F09004DAC26 /* TruckRatingVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */; };
+		A4FC305F24F5F16D00E1646C /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FC305E24F5F16D00E1646C /* NetworkController.swift */; };
+		A4FC306124F5F38900E1646C /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FC306024F5F38900E1646C /* APIController.swift */; };
 		AF23C7CB24EE059E0081B805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7CA24EE059E0081B805 /* AppDelegate.swift */; };
 		AF23C7CD24EE059E0081B805 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7CC24EE059E0081B805 /* SceneDelegate.swift */; };
 		AF23C7D224EE059E0081B805 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF23C7D024EE059E0081B805 /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		68852DF324EF69D3004DAC26 /* MapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewController.swift; sourceTree = "<group>"; };
 		68852DF724EF6AA3004DAC26 /* ProfileVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileVC.storyboard; sourceTree = "<group>"; };
 		68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TruckRatingVC.storyboard; sourceTree = "<group>"; };
+		A4FC305E24F5F16D00E1646C /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		A4FC306024F5F38900E1646C /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AF23C7C724EE059E0081B805 /* Food Truck TrackR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Truck TrackR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF23C7CA24EE059E0081B805 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF23C7CC24EE059E0081B805 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 			path = ModelController;
 			sourceTree = "<group>";
 		};
+		A4FC305D24F5F14D00E1646C /*  Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A4FC305E24F5F16D00E1646C /* NetworkController.swift */,
+				A4FC306024F5F38900E1646C /* APIController.swift */,
+			);
+			path = " Networking";
+			sourceTree = "<group>";
+		};
 		AF23C7BE24EE059E0081B805 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +122,7 @@
 				4459683924EF682100AA9C9B /* CoreData */,
 				AF23C7E124EE0F2D0081B805 /* Model */,
 				68852DF024EF6215004DAC26 /* ModelController */,
+				A4FC305D24F5F14D00E1646C /*  Networking */,
 				AF23C7E324EE0F5E0081B805 /* Views */,
 				AF23C7E224EE0F390081B805 /* ViewControllers */,
 				AF23C7E524EE0FCF0081B805 /* Storyboards */,
@@ -242,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4FC305F24F5F16D00E1646C /* NetworkController.swift in Sources */,
 				AF23C7E724EE10B60081B805 /* LogInViewController.swift in Sources */,
 				44C9EEC224F3D0D0008094AE /* Menu+Conveniece.swift in Sources */,
 				68852DED24EF5D98004DAC26 /* DinerRepresentation.swift in Sources */,
@@ -251,6 +266,7 @@
 				AF23C7CB24EE059E0081B805 /* AppDelegate.swift in Sources */,
 				4459683B24EF684200AA9C9B /* CoreDataStack.swift in Sources */,
 				AF23C7CD24EE059E0081B805 /* SceneDelegate.swift in Sources */,
+				A4FC306124F5F38900E1646C /* APIController.swift in Sources */,
 				4459683D24F2FA4600AA9C9B /* Diner+Convenience.swift in Sources */,
 				44C9EEC424F3D15B008094AE /* MenuRepresentation.swift in Sources */,
 				68852DEF24EF5F16004DAC26 /* OperatorRepresentation.swift in Sources */,
