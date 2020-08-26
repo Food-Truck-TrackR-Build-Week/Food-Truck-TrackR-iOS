@@ -46,6 +46,17 @@ class CoreDataStack {
         return container
     }()
     
+    lazy var menuContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Menu")
+        container.loadPersistentStores { (_, error) in
+            if let error = error {
+                fatalError("Failed to load persistent stores: \(error)")
+            }
+        }
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        return container
+    }()
+    
     
     func saveDiner(context: NSManagedObjectContext = CoreDataStack.shared.dinerContext) throws {
         var error: Error?
@@ -89,6 +100,20 @@ class CoreDataStack {
         if let error = error { throw error }
     }
     
+    func saveMenu(context: NSManagedObjectContext = CoreDataStack.shared.menuContext) throws {
+           var error: Error?
+           
+           context.performAndWait {
+               do {
+                   try context.save()
+               } catch let saveError {
+                   error = saveError
+               }
+           }
+           
+           if let error = error { throw error }
+       }
+    
     var dinerContext: NSManagedObjectContext {
         return dinerContainer.viewContext
     }
@@ -97,6 +122,9 @@ class CoreDataStack {
     }
     var truckContext: NSManagedObjectContext {
         return truckContainer.viewContext
+    }
+    var menuContext: NSManagedObjectContext {
+        return menuContainer.viewContext
     }
 }
 
