@@ -25,11 +25,117 @@ enum NetworkingError: Error {
 }
 
 class NetworkingController {
+    
     let baseUrl = URL(string: "https://food-truck-trackr-api.herokuapp.com")!
     let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMDAwMDEsInVzZXJuYW1lIjoiZGluZXIxIiwiaWF0IjoxNTk4MzE2NjA0LCJleHAiOjE1OTg0MDMwMDR9.aMZQvfWtHb-9Unn7CdS1q1Ouf0PyHSmdRqc_f_70Y78"
     
     let jsonDecoder = JSONDecoder()
     let jsonEncoder = JSONEncoder()
+    
+    //MARK: - POST Requests
+    
+    //returns diner and signs them into the app
+    func loginDiner(completion: @escaping (Result<[TruckRepresentation], NetworkingError>) -> Void) {
+
+        var semaphore = DispatchSemaphore (value: 0)
+
+        let parameters = "{ \"username\": \"diner1\", \"password\": \"password\" }"
+        let postData = parameters.data(using: .utf8)
+
+        var request = URLRequest(url: URL(string: "https://food-truck-trackr-api.herokuapp.com/api/auth/login")!,timeoutInterval: Double.infinity)
+        request.httpMethod = "POST"
+        request.httpBody = postData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+          guard let data = data else {
+            print(String(describing: error))
+            return
+          }
+          print(String(data: data, encoding: .utf8)!)
+          semaphore.signal()
+        }
+
+        task.resume()
+        semaphore.wait()
+
+    }
+    
+    //returns diner and creates an account for them
+    func registerDiner() {
+
+        var semaphore = DispatchSemaphore (value: 0)
+
+        let parameters = "{ \"username\": \"diner3\", \"password\": \"password\", \"email\": \"diner3@gmail.com\" }"
+        let postData = parameters.data(using: .utf8)
+
+        var request = URLRequest(url: URL(string: "https://food-truck-trackr-api.herokuapp.com/api/auth/register/diner")!,timeoutInterval: Double.infinity)
+        request.httpMethod = "POST"
+        request.httpBody = postData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+          guard let data = data else {
+            print(String(describing: error))
+            return
+          }
+          print(String(data: data, encoding: .utf8)!)
+          semaphore.signal()
+        }
+
+        task.resume()
+        semaphore.wait()
+
+    }
+    
+    //returns operator and signs them into the app
+    func loginOperator(completion: @escaping (Result<[TruckRepresentation], NetworkingError>) -> Void) {
+        
+        var semaphore = DispatchSemaphore (value: 0)
+
+        let parameters = "{ \"username\": \"diner1\", \"password\": \"password\" }"
+        let postData = parameters.data(using: .utf8)
+
+        var request = URLRequest(url: URL(string: "https://food-truck-trackr-api.herokuapp.com/api/auth/login")!,timeoutInterval: Double.infinity)
+        request.httpMethod = "POST"
+        request.httpBody = postData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+          guard let data = data else {
+            print(String(describing: error))
+            return
+          }
+          print(String(data: data, encoding: .utf8)!)
+          semaphore.signal()
+        }
+
+        task.resume()
+        semaphore.wait()
+
+    }
+    
+    //returns operator and creates an account for them
+    func registerOperator() {
+        
+        let parameters = "{ \"username\": \"operator3\", \"password\": \"password\", \"email\": \"operator3@gmail.com\" }"
+        let postData = parameters.data(using: .utf8)
+
+        var request = URLRequest(url: URL(string: "https://food-truck-trackr-api.herokuapp.com/api/auth/register/operator")!,timeoutInterval: Double.infinity)
+        request.httpMethod = "POST"
+        request.httpBody = postData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+          guard let data = data else {
+            print(String(describing: error))
+            return
+          }
+          print(String(data: data, encoding: .utf8)!)
+          semaphore.signal()
+        }
+
+        task.resume()
+        semaphore.wait()
+
+        
+    }
     
     //MARK: - GET Requests
     
