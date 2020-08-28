@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
 // NO
 class customPin: NSObject, MKAnnotation {
@@ -24,6 +25,16 @@ class customPin: NSObject, MKAnnotation {
 }
 
 class MapTableViewController: UITableViewController, MKMapViewDelegate {
+    
+     let truckController = NetworkingController()
+    
+    @IBAction func refresh(_ sender: Any) {
+        truckController.getAllTrucks { (_) in
+            DispatchQueue.main.async {
+                self.refreshControl?.endRefreshing()
+            }
+        }
+    }
 
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
@@ -50,6 +61,22 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(true)
+           tableView.reloadData()
+       }
+      
+      lazy var fetchResultsController: NSFetchedResultsController<Truck> = {
+          let fetchRequest: NSFetchRequest<Truck> = Truck.fetchRequest();
+          fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true), NSSortDescriptor(key: "location", ascending: true)]
+          
+          let moc = CoreDataStack.shared.mainContext
+          let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: "name", cacheName: nil)
+          frc.delegate = self
+          try! frc.performFetch()
+          return frc
+      }()
 
     func mapView(_ mapview: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else { return nil }
@@ -64,58 +91,23 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return fetchResultsController.sections?.count ?? 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return fetchResultsController.sections? [section].numberOfObjects ?? 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+          guard let cell = tableView.dequeueReusableCell(withIdentifier: TruckTableViewCell.reuseIdentifier, for: indexPath) as? TruckTableViewCell else { fatalError("Cannot deque cell \(TruckTableViewCell.reuseIdentifier)")}
+          
+          // Configure the cell...
+         // cell.delegate = self
+          cell.truck = fetchResultsController.object(at: indexPath)
+          return cell
+      }
 
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         let pinLocation = view.annotation?.coordinate
@@ -209,6 +201,7 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
 }
 
 extension MapTableViewController: CLLocationManagerDelegate {
+    
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation]) {
 
@@ -222,4 +215,51 @@ extension MapTableViewController: CLLocationManagerDelegate {
     }
 }
 
+extension MapTableViewController: NSFetchedResultsControllerDelegate {
+    
+    //Updates
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
+    }
+    
+    //Sections
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections((IndexSet(integer: sectionIndex)), with: .automatic)
+        case .delete:
+            tableView.deleteSections((IndexSet(integer: sectionIndex)), with: .automatic)
+        default:
+            break
+        }
+    }
+    
+    // Rows
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            guard let newIndexPath = newIndexPath else {return}
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .update:
+            guard let indexPath = indexPath else {return}
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        case .move:
+            guard let oldIndexPath = indexPath,
+                let newIndexPath = newIndexPath else {return}
+            tableView.deleteRows(at: [oldIndexPath], with: .automatic)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        case .delete:
+            guard let indexPath = indexPath else {return}
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        default:
+            break
+        }
+    }
+}
 

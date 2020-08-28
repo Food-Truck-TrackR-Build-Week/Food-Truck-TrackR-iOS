@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EeD-Ck-omF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EeD-Ck-omF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,14 +39,28 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZC9-jO-1pi">
-                                <rect key="frame" x="0.0" y="442" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TruckCell" id="ZC9-jO-1pi" customClass="TruckTableViewCell" customModule="Food_Truck_TrackR" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="442" width="414" height="47.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZC9-jO-1pi" id="oqx-XW-adg">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9l3-zC-wkK">
+                                            <rect key="frame" x="22" y="13" width="42" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9l3-zC-wkK" firstAttribute="leading" secondItem="oqx-XW-adg" secondAttribute="leadingMargin" constant="2" id="56G-IU-0V4"/>
+                                        <constraint firstItem="9l3-zC-wkK" firstAttribute="top" secondItem="oqx-XW-adg" secondAttribute="topMargin" constant="2" id="aNc-aJ-pYu"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="9l3-zC-wkK" secondAttribute="bottom" constant="2" id="gR4-EL-vkz"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="truckNameLabel" destination="9l3-zC-wkK" id="rIO-We-SJB"/>
                                     <segue destination="JZ7-Gj-hlu" kind="show" identifier="ShowProfile" id="OgG-ML-CJz"/>
                                 </connections>
                             </tableViewCell>
@@ -63,6 +77,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="zAg-FA-fhw">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="jsl-A3-KUH" eventType="valueChanged" id="97T-T6-wmi"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <outlet property="mapView" destination="FP5-Nq-xYg" id="Jy5-7w-IU8"/>
                     </connections>
@@ -91,6 +111,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="person.crop.circle" catalog="system" width="64" height="60"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

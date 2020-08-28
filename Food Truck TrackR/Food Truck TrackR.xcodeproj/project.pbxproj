@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4455FFE524F8A52F0046CC99 /* FetchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455FFE424F8A52F0046CC99 /* FetchResultsController.swift */; };
+		4455FFE724F8AC8F0046CC99 /* TruckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4455FFE624F8AC8F0046CC99 /* TruckTableViewCell.swift */; };
 		4459683B24EF684200AA9C9B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459683A24EF684200AA9C9B /* CoreDataStack.swift */; };
 		44C9EEBE24F3519B008094AE /* Truck+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C9EEBD24F3519B008094AE /* Truck+Convenience.swift */; };
 		44C9EEC224F3D0D0008094AE /* Menu+Conveniece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C9EEC124F3D0D0008094AE /* Menu+Conveniece.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4455FFE424F8A52F0046CC99 /* FetchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchResultsController.swift; sourceTree = "<group>"; };
+		4455FFE624F8AC8F0046CC99 /* TruckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckTableViewCell.swift; sourceTree = "<group>"; };
 		4459683A24EF684200AA9C9B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		44C9EEBD24F3519B008094AE /* Truck+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Truck+Convenience.swift"; sourceTree = "<group>"; };
 		44C9EEC124F3D0D0008094AE /* Menu+Conveniece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu+Conveniece.swift"; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				A4FC305E24F5F16D00E1646C /* NetworkController.swift */,
+				4455FFE424F8A52F0046CC99 /* FetchResultsController.swift */,
 				A4FC306024F5F38900E1646C /* APIController.swift */,
 			);
 			path = " Networking";
@@ -161,6 +166,7 @@
 				4CF5B95024F77A540037D8F6 /* ProfileViewController.swift */,
 				AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */,
 				68852DF324EF69D3004DAC26 /* MapTableViewController.swift */,
+				4455FFE624F8AC8F0046CC99 /* TruckTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4455FFE724F8AC8F0046CC99 /* TruckTableViewCell.swift in Sources */,
 				4C6030F424F787EB0069D008 /* ChooseUserTypeViewController.swift in Sources */,
 				A4FC305F24F5F16D00E1646C /* NetworkController.swift in Sources */,
 				AF23C7E724EE10B60081B805 /* LogInViewController.swift in Sources */,
@@ -291,6 +298,7 @@
 				A4FC306124F5F38900E1646C /* APIController.swift in Sources */,
 				4CF5B95324F77A540037D8F6 /* TruckRatingViewController.swift in Sources */,
 				44C9EEC424F3D15B008094AE /* MenuRepresentation.swift in Sources */,
+				4455FFE524F8A52F0046CC99 /* FetchResultsController.swift in Sources */,
 				68852DEF24EF5F16004DAC26 /* OperatorRepresentation.swift in Sources */,
 				68852DF424EF69D3004DAC26 /* MapTableViewController.swift in Sources */,
 			);

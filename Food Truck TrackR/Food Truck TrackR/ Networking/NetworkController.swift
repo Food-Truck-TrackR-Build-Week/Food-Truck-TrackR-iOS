@@ -25,6 +25,7 @@ enum NetworkingError: Error {
 }
 
 class NetworkingController {
+    
     let baseUrl = URL(string: "https://food-truck-trackr-api.herokuapp.com")!
     let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMDAwMDEsInVzZXJuYW1lIjoiZGluZXIxIiwiaWF0IjoxNTk4MzE2NjA0LCJleHAiOjE1OTg0MDMwMDR9.aMZQvfWtHb-9Unn7CdS1q1Ouf0PyHSmdRqc_f_70Y78"
     
@@ -32,6 +33,10 @@ class NetworkingController {
     let jsonEncoder = JSONEncoder()
     
     //MARK: - GET Requests
+    
+    init() {
+          fetchTrucksFromServer()
+      }
     
     //returns an array of all trucks
     func getAllTrucks(completion: @escaping (Result<[TruckRepresentation], NetworkingError>) -> Void) {
