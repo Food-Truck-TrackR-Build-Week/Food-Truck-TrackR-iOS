@@ -14,12 +14,13 @@ extension Menu {
     var menuRepresentation: MenuRepresentation? {
         guard let itemName = itemName, let itemDescription = itemDescription, let itemPhotos = itemPhotos else {return nil}
         
-        return MenuRepresentation(identifier: Int(identifier),
-                                  menuID: Int(menuID),
+        return MenuRepresentation(id: Int(menuID),
                                   itemName: itemName,
                                   itemDescription: itemDescription,
                                   itemPrice: itemPrice,
-                                  itemPhotos: itemPhotos)
+                                  itemPhotos: itemPhotos,
+                                  customerRating: nil,
+                                  customerRatingAvg: nil)
     }
     
     convenience init(identifier: Int64,
@@ -41,8 +42,8 @@ extension Menu {
     @discardableResult convenience init?(menuRepresentation: MenuRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         guard let itemPhotos = menuRepresentation.itemPhotos else {return nil}
         
-        self.init(identifier: Int64(menuRepresentation.identifier),
-                  menuID: Int64(menuRepresentation.menuID),
+        self.init(identifier: Int64(menuRepresentation.id),
+                  menuID: Int64(menuRepresentation.id),
                   itemName: menuRepresentation.itemName,
                   itemDescription: menuRepresentation.itemDescription,
                   itemPrice: menuRepresentation.itemPrice,

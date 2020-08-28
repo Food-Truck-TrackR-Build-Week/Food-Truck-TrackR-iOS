@@ -12,33 +12,42 @@ class TruckDetailViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet var foodTruckNameLabel: UILabel!
-    @IBOutlet var firstReviewLabel: UILabel!
-    @IBOutlet var secondReviewLabel: UILabel!
-    @IBOutlet var thirdReviewLabel: UILabel!
-    @IBOutlet var favoriteButton: UIButton!
+    @IBOutlet var ratingLabel: UILabel!
+    @IBOutlet var truckImageView: UIImageView!
+    @IBOutlet var currentLocationLabel: UILabel!
+    @IBOutlet var cuisineTypeLabel: UILabel!
+    @IBOutlet var departureTimeLabel: UILabel!
+    @IBOutlet var favoriteButton: UIBarButtonItem!
 
     // MARK: - Properites
+    var diner: DinerRepresentation?
+    var truck: TruckRepresentation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateViews()
     }
 
     // MARK: - IBActions
     @IBAction func favoriteButtonTapped(_ sender: Any) {
-        favoriteButton.setImage(UIImage(named: "heart.fill"), for: .normal)
+        guard let truck = truck else { return }
+        diner?.favoriteTrucks?.append(truck)
     }
 
+    // MARK: - Functions
+    private func updateViews() {
+        foodTruckNameLabel.text = truck?.name
+        ratingLabel.text = String(describing: truck?.customerRatingAVG)
+        // fetch image here
+        currentLocationLabel.text = truck?.location
+        cuisineTypeLabel.text = truck?.cuisineType
 
-    /*
-    // MARK: - Navigation
+        // Create string from date for departureTime
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, h:mm a"
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let departureTime = truck?.departureTime else { return }
+
+        departureTimeLabel.text = dateFormatter.string(from: Date(milliseconds: Int64(departureTime)))
     }
-    */
-
 }

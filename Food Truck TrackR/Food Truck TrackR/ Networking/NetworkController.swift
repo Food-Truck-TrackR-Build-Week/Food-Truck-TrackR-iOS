@@ -26,7 +26,7 @@ enum NetworkingError: Error {
 
 class NetworkingController {
     let baseUrl = URL(string: "https://food-truck-trackr-api.herokuapp.com")!
-    let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMDAwMDEsInVzZXJuYW1lIjoiZGluZXIxIiwiaWF0IjoxNTk4MzE2NjA0LCJleHAiOjE1OTg0MDMwMDR9.aMZQvfWtHb-9Unn7CdS1q1Ouf0PyHSmdRqc_f_70Y78"
+    let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0Ijo2LCJ1c2VybmFtZSI6ImxpYmJ5IiwiaWF0IjoxNTk4NTgyNjM1LCJleHAiOjE1OTg2NjkwMzV9.SvmTdrxOdkQcV8sI_ZYRzic5X8EjjNFZ8RfGJbOOTNc"
     
     let jsonDecoder = JSONDecoder()
     let jsonEncoder = JSONEncoder()
@@ -56,10 +56,13 @@ class NetworkingController {
                 return
             }
             
+//            let json = try! JSONSerialization.jsonObject(with: data, options: [])
+//            print(json)
             do {
                 let trucksArray = try self.jsonDecoder.decode([TruckRepresentation].self, from: data)
                 completion(.success(trucksArray))
             } catch {
+                NSLog("\(error)")
                 completion(.failure(.decodingError))
             }
         }.resume()
