@@ -2,7 +2,7 @@
 //  TruckRepresentation.swift
 //  Food Truck TrackR
 //
-//  Created by Elizabeth Thomas on 8/20/20.
+//  Created by Michael McGrath on 8/26/20.
 //  Copyright © 2020 Juan M Mariscal. All rights reserved.
 //
 

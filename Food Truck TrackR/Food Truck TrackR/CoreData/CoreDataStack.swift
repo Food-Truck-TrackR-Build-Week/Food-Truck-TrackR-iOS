@@ -13,8 +13,8 @@ class CoreDataStack {
     
     static let shared = CoreDataStack()
     
-    lazy var dinerContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Diner")
+    lazy var container: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Food_Truck")
         container.loadPersistentStores { (_, error) in
             if let error = error {
                 fatalError("Failed to load persistent stores: \(error)")
@@ -24,41 +24,7 @@ class CoreDataStack {
         return container
     }()
     
-    lazy var operatorContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Operator")
-        container.loadPersistentStores { (_, error) in
-            if let error = error {
-                fatalError("Failed to load persistent stores: \(error)")
-            }
-        }
-        container.viewContext.automaticallyMergesChangesFromParent = true
-        return container
-    }()
-    
-    lazy var truckContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Truck")
-        container.loadPersistentStores { (_, error) in
-            if let error = error {
-                fatalError("Failed to load persistent stores: \(error)")
-            }
-        }
-        container.viewContext.automaticallyMergesChangesFromParent = true
-        return container
-    }()
-    
-    lazy var menuContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Menu")
-        container.loadPersistentStores { (_, error) in
-            if let error = error {
-                fatalError("Failed to load persistent stores: \(error)")
-            }
-        }
-        container.viewContext.automaticallyMergesChangesFromParent = true
-        return container
-    }()
-    
-    
-    func saveDiner(context: NSManagedObjectContext = CoreDataStack.shared.dinerContext) throws {
+    func save(context: NSManagedObjectContext = CoreDataStack.shared.mainContext) throws {
         var error: Error?
         
         context.performAndWait {
@@ -72,59 +38,7 @@ class CoreDataStack {
         if let error = error { throw error }
     }
     
-    func saveOperator(context: NSManagedObjectContext = CoreDataStack.shared.operatorContext) throws {
-        var error: Error?
-        
-        context.performAndWait {
-            do {
-                try context.save()
-            } catch let saveError {
-                error = saveError
-            }
-        }
-        
-        if let error = error { throw error }
-    }
-    
-    func saveTruck(context: NSManagedObjectContext = CoreDataStack.shared.truckContext) throws {
-        var error: Error?
-        
-        context.performAndWait {
-            do {
-                try context.save()
-            } catch let saveError {
-                error = saveError
-            }
-        }
-        
-        if let error = error { throw error }
-    }
-    
-    func saveMenu(context: NSManagedObjectContext = CoreDataStack.shared.menuContext) throws {
-           var error: Error?
-           
-           context.performAndWait {
-               do {
-                   try context.save()
-               } catch let saveError {
-                   error = saveError
-               }
-           }
-           
-           if let error = error { throw error }
-       }
-    
-    var dinerContext: NSManagedObjectContext {
-        return dinerContainer.viewContext
-    }
-    var operatorContext: NSManagedObjectContext {
-        return operatorContainer.viewContext
-    }
-    var truckContext: NSManagedObjectContext {
-        return truckContainer.viewContext
-    }
-    var menuContext: NSManagedObjectContext {
-        return menuContainer.viewContext
+    var mainContext: NSManagedObjectContext {
+        return container.viewContext
     }
 }
-
