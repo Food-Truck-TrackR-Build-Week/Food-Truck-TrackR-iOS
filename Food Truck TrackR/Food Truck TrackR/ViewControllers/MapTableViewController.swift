@@ -29,27 +29,66 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        checkLocationServices()
-        mapView.showsCompass = true
-
-        let foodTruckLocation = CLLocationCoordinate2D(latitude: 43.09306637904841, longitude: -77.65192094989914)
-        let foodTruckPin = customPin(titlePin: "In Queso Emergency", subtitlePin: "A cheesy delight.", coordinatePin: foodTruckLocation)
-        self.mapView.addAnnotation(foodTruckPin)
-        self.mapView.delegate = self
-
-        let foodTruckLocation2 = CLLocationCoordinate2D(latitude: 37.80128588094106, longitude: -122.42472711750167)
-        let foodTruckPin2 = customPin(titlePin: "You Need Cheesus", subtitlePin: "A religous experience.", coordinatePin: foodTruckLocation2)
-        self.mapView.addAnnotation(foodTruckPin2)
-        self.mapView.delegate = self
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    var trucks: [TruckRepresentation] = [] {
+        didSet {
+            tableView.reloadData()
+        }
     }
+    let networkController = NetworkingController()
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+
+        networkController.getAllTrucks { (result) in
+            do {
+                let allTrucks = try result.get()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.trucks = allTrucks
+                }
+            } catch {
+                if let error = error as? NetworkingError {
+                    switch error {
+                    case .noAuth:
+                        NSLog("Error: No bearer token exists.")
+                    case .badAuth:
+                        NSLog("Error: Bearer token invalid.")
+                    case .noData:
+                        NSLog("Error: The response had no data.")
+                    case .badData:
+                        NSLog("Error: Corrupt data files.")
+                    case .decodingError:
+                        NSLog("Error: The data could not be decoded.")
+                    case .encodingError:
+                        NSLog("Error: The data could not be encoded.")
+                    }
+                }
+            }
+        }
+
+    }
+
+    override func viewDidLoad() {
+    super.viewDidLoad()
+    checkLocationServices()
+    mapView.showsCompass = true
+
+    let foodTruckLocation = CLLocationCoordinate2D(latitude: 43.09306637904841, longitude: -77.65192094989914)
+    let foodTruckPin = customPin(titlePin: "In Queso Emergency", subtitlePin: "A cheesy delight.", coordinatePin: foodTruckLocation)
+    self.mapView.addAnnotation(foodTruckPin)
+    self.mapView.delegate = self
+
+    let foodTruckLocation2 = CLLocationCoordinate2D(latitude: 37.80128588094106, longitude: -122.42472711750167)
+    let foodTruckPin2 = customPin(titlePin: "You Need Cheesus", subtitlePin: "A religous experience.", coordinatePin: foodTruckLocation2)
+    self.mapView.addAnnotation(foodTruckPin2)
+    self.mapView.delegate = self
+
+    // Uncomment the following line to preserve selection between presentations
+    // self.clearsSelectionOnViewWillAppear = false
+
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem
+}
 
     func mapView(_ mapview: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else { return nil }
@@ -62,61 +101,27 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return trucks.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "truckCell", for: indexPath) as? TruckTableViewCell else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "truckCell", for: indexPath)
 
-        // Configure the cell...
+        let truck = trucks[indexPath.row]
+
+        let titleText = "\(truck.name) \n\(truck.cuisineType)"
+        cell.textLabel?.text = titleText
+        cell.detailTextLabel?.text = "\(truck.customerRatingAVG ?? 0)"
+
+//        cell.truck = trucks[indexPath.row]
 
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    // MARK: - MapKit Functions
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         let pinLocation = view.annotation?.coordinate
         let userLocation = locationManager.location?.coordinate
@@ -196,15 +201,18 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
                 break
             }
         }
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowProfile" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let detailVC = segue.destination as? TruckDetailViewController
+            detailVC?.truck = self.trucks[indexPath.row]
+        } else { return }
     }
-    */
+
 
 }
 

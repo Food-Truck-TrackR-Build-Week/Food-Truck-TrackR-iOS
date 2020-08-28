@@ -10,12 +10,12 @@ import Foundation
 import CoreData
 
 extension Truck {
-    
+
     var truckRepresentation: TruckRepresentation? {
-        guard let name = name, let imageOfTruck = imageOfTruck, let location = location, let cuisineType = cuisineType, let departureTime = departureTime else {return nil}
-        
+        guard let name = name, let imageOfTruck = imageOfTruck, let location = location, let cuisineType = cuisineType else {return nil}
+
         var menuItems: [MenuRepresentation] = []
-        
+
         if let items = menu {
             for item in items {
                 if let menuItem = item as? Menu, let menuItemRepresentation = menuItem.menuRepresentation {
@@ -23,19 +23,24 @@ extension Truck {
                 }
             }
         }
-        
+
+        var date: Int = 0
+        if let interval = departureTime?.millisecondsSince1970 {
+            date = Int(interval)
+        }
+
         return TruckRepresentation(identifier: Int(identifier),
                                    operatorID: Int(operatorID),
                                    name: name,
                                    imageOfTruck: imageOfTruck,
                                    location: location,
                                    cuisineType: cuisineType,
-                                   menu: menuItems,
-                                   departureTime: departureTime,
+                                   departureTime: date,
                                    customerRating: customerRating,
-                                   customerRatingAVG: customerRatingAVG)
+                                   customerRatingAVG: Int(customerRatingAVG),
+                                   menu: menuItems)
     }
-    
+
     convenience init(identifier: Int64,
                      operatorID: Int64,
                      name: String,
@@ -44,8 +49,8 @@ extension Truck {
                      cuisineType: String,
                      menu: NSSet?,
                      departureTime: Date,
-                     customerRating: [Double]? = nil,
-                     customerRatingAVG: Double,
+                     customerRating: [Int]?,
+                     customerRatingAVG: Int64,
                      context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.identifier = identifier
@@ -59,13 +64,13 @@ extension Truck {
         self.customerRating = customerRating
         self.customerRatingAVG = customerRatingAVG
     }
-    
+
     @discardableResult convenience init?(truckRepresentation: TruckRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        
-        guard let customerRating = truckRepresentation.customerRating, let imageOfTruck = truckRepresentation.imageOfTruck else {return nil}
-        
+
+        guard let imageOfTruck = truckRepresentation.imageOfTruck else {return nil}
+
         var menuItems: [Menu] = []
-        
+
         if let itemMenuRepresentation = truckRepresentation.menu, itemMenuRepresentation.count > 0 {
             for representation in itemMenuRepresentation {
                 if let item = Menu(menuRepresentation: representation) {
@@ -73,13 +78,15 @@ extension Truck {
                 }
             }
         }
-        
+
+        let departureTime = Date(milliseconds: Int64(truckRepresentation.departureTime))
+
         var menuSet: NSSet?
-        
+
         if menuItems.count > 0 {
             menuSet = NSSet(array: [menuItems])
         }
-        
+
         self.init(identifier: Int64(truckRepresentation.identifier),
                   operatorID: Int64(truckRepresentation.operatorID),
                   name: truckRepresentation.name,
@@ -87,9 +94,9 @@ extension Truck {
                   location: truckRepresentation.location,
                   cuisineType: truckRepresentation.cuisineType,
                   menu: menuSet,
-                  departureTime: truckRepresentation.departureTime,
-                  customerRating: customerRating,
-                  customerRatingAVG: truckRepresentation.customerRatingAVG,
+                  departureTime: departureTime,
+                  customerRating: truckRepresentation.customerRating,
+                  customerRatingAVG: Int64(truckRepresentation.customerRatingAVG ?? 0),
                   context: context)
     }
 }
