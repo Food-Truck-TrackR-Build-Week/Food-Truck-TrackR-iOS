@@ -9,14 +9,31 @@
 import Foundation
 
 struct TruckRepresentation: Codable {
-    var identifier: Int
-    var operatorID: Int
-    var name: String
-    var imageOfTruck: String?
-    var location: String
-    var cuisineType: String
-    var menu: [MenuRepresentation]?
-    var departureTime: Date
-    var customerRating: [Double]?
-    var customerRatingAVG: Double
+    let identifier: Int
+    let operatorID: Int
+
+    let name: String
+    let imageOfTruck: String?
+    let location: String
+    let cuisineType: String
+    let departureTime: Int
+    let customerRating: [Int]?
+    let customerRatingAVG: Int?
+
+    let menu: [MenuRepresentation]?
+
+    enum CodingKeys: String, CodingKey {
+        case identifier = "id"
+        case operatorID = "operatorId"
+        case name
+        case imageOfTruck
+        case location = "currentLocation"
+        case cuisineType
+        case departureTime
+        case customerRating = "customerRatings"
+        case customerRatingAVG = "customerRatingsAvg"
+        case menu
+    }
 }
+
+

@@ -9,10 +9,11 @@
 import Foundation
 
 struct MenuRepresentation: Codable {
-    var identifier: Int
-    var menuID: Int
-    var itemName: String
-    var itemDescription: String
-    var itemPrice: Double
-    var itemPhotos: [String]?
+    let id: Int
+    let itemName: String
+    let itemDescription: String
+    let itemPrice: Double
+    let itemPhotos: [String]?
+    let customerRating: [Float]?
+    let customerRatingAvg: Float?
 }
