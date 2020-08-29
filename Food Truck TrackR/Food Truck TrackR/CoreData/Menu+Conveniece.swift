@@ -19,7 +19,7 @@ extension Menu {
                                   itemDescription: itemDescription,
                                   itemPrice: itemPrice,
                                   itemPhotos: itemPhotos,
-                                  customerRating: 5,
+                                  customerRating: [5],
                                   customerRatingAvg: 5)
     }
     
