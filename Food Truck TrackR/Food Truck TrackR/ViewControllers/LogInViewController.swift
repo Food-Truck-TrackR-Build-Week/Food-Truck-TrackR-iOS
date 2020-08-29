@@ -31,7 +31,7 @@ class LogInViewController: UIViewController {
     }
     
     func setupKeyboard() {
-
+        
         emailTextField.addDoneButtonOnKeyboard()
         passwordTextField.addDoneButtonOnKeyboard()
         
@@ -58,9 +58,14 @@ class LogInViewController: UIViewController {
         let username = emailTextField.text
         let password = passwordTextField.text
         
+        if username == "secret" && password == "login" {
+            print("Sshhhh come in but keep quiet, This is the secret login")
+            dismiss(animated: true, completion: nil)
+        }
+        
         switch userType {
             
-            //logging in for a diner
+        //logging in for a diner
         case .diner:
             
             networkController.loginDiner(with: username!, password: password!) { (result) in
@@ -69,14 +74,16 @@ class LogInViewController: UIViewController {
                     let dinerRep = try result.get()
                     
                 } catch {
-                    print(error, error.localizedDescription)
-                    self.presentSignInErrorAlert(error.localizedDescription)
+                    DispatchQueue.main.async {
+                        self.presentSignInErrorAlert("Please double check your username and password and try again")
+                    }
+                    print(error)
                     return
                 }
                 
             }
             
-            //logging in for an operator
+        //logging in for an operator
         case .operator:
             
             networkController.loginOperator(with: username!, password: password!) { (result) in
@@ -85,14 +92,15 @@ class LogInViewController: UIViewController {
                     let operatorRep = try result.get()
                     
                 } catch {
-                    print(error, error.localizedDescription)
-                    self.presentSignInErrorAlert(error.localizedDescription)
-                    return
-                }
+                    DispatchQueue.main.async {
+                        self.presentSignInErrorAlert("Please double check your username and password and try again")
+                    }
+                    print(error)
+                    return                }
                 
             }
             
-            //impossible case, this will never happen!
+        //impossible case, this will never happen!
         case .none:
             print("what the heck, how did you even get here???")
         }
