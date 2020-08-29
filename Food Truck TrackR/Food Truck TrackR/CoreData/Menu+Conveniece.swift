@@ -19,8 +19,8 @@ extension Menu {
                                   itemDescription: itemDescription,
                                   itemPrice: itemPrice,
                                   itemPhotos: itemPhotos,
-                                  customerRating: nil,
-                                  customerRatingAvg: nil)
+                                  customerRating: 5,
+                                  customerRatingAvg: 5)
     }
     
     convenience init(identifier: Int64,
