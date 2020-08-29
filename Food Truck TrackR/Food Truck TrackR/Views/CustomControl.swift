@@ -16,7 +16,7 @@ class CustomControl: UIControl {
     var value: Int = 1
     private let componentDimension: CGFloat = 40.0
     private let componentCount: CGFloat = 5.0
-    private let componentActiveColor: UIColor = .black
+    private let componentActiveColor: UIColor = .orange
     private let componentInactiveColor: UIColor = .gray
     private var starArray: [UILabel] = []
     var label = UILabel()
