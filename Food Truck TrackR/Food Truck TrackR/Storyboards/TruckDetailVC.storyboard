@@ -10,7 +10,7 @@
         <!--TruckRatingVC-->
         <scene sceneID="39Q-vQ-lGb">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="TruckRatingVC" storyboardName="TruckRatingVC" id="PVB-n9-agS" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="TruckRatingVC" storyboardName="TruckRatingVC" referencedIdentifier="TruckRatingVC" id="PVB-n9-agS" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="7HT-Fp-ogi"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Om-lG-eoq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -20,7 +20,7 @@
         <!--Truck Detail View Controller-->
         <scene sceneID="0Xw-fr-1le">
             <objects>
-                <viewController id="hOY-Sy-6Dm" customClass="TruckDetailViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TruckDetailVC" id="hOY-Sy-6Dm" customClass="TruckDetailViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MaM-I8-Egq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,8 +85,7 @@
                                     <color key="titleColor" red="0.96078431369999995" green="0.48627450979999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="reivewButtonTapped:" destination="hOY-Sy-6Dm" eventType="touchUpInside" id="MNr-pq-dQc"/>
-                                    <segue destination="PVB-n9-agS" kind="show" id="0BB-vd-8Gg"/>
+                                    <segue destination="PVB-n9-agS" kind="show" identifier="TruckRatingSegue" id="0BB-vd-8Gg"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -36,18 +36,22 @@ class TruckDetailViewController: UIViewController {
 
     // MARK: - Functions
     private func updateViews() {
-        foodTruckNameLabel.text = truck?.name
-        ratingLabel.text = String(describing: truck?.customerRatingAVG)
-        // fetch image here
-        currentLocationLabel.text = truck?.location
-        cuisineTypeLabel.text = truck?.cuisineType
-
-        // Create string from date for departureTime
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, h:mm a"
-
-        guard let departureTime = truck?.departureTime else { return }
-
-        departureTimeLabel.text = dateFormatter.string(from: Date(milliseconds: Int64(departureTime)))
+      guard let truck = truck, let averageRating = truck.customerRatingAVG, let truckImage = truck.imageOfTruck else { return }
+      foodTruckNameLabel.text = truck.name
+      ratingLabel.text = String(describing: averageRating)
+      // fetch image here
+      //truckImageView.image = truckImage.toImage()
+      cuisineTypeLabel.text = truck.cuisineType
+      // Create string from date for departureTime
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "MMM d, h:mm a"
+      departureTimeLabel.text = dateFormatter.string(from: Date(milliseconds: Int64(truck.departureTime)))
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TruckRatingSegue"{
+            guard let ratingVC = segue.destination as? TruckRatingViewController else { return }
+            ratingVC.truck = truck
+        } else { return }
     }
 }

@@ -9,17 +9,67 @@
 import UIKit
 
 class TruckRatingViewController: UIViewController {
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var truckNameLabel: UILabel!
+    @IBOutlet weak var truckImage: UIImageView!
+    
+    var networkController: NetworkingController?
+    
+    var truck: TruckRepresentation? {
+        didSet {
+            updateViews()
+        }
+    }
+    var diner: DinerRepresentation?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViews()
     }
+    
+    func updateViews() {
+        guard isViewLoaded else { return }
+        
+        guard let truck = truck else {
+            title = "Review Food Truck"
+            
+            truckNameLabel.text = "Food Truck"
+            return
+        }
+        
+        title = "Review Food Truck"
+        truckNameLabel.text = "\(truck.name)"
+        
+        //updateImage()
+        
+        
+    }
+    
+    // MARK: - IBActions
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let truck = truck else { return }
+        guard let diner = diner else { return }
+        let truckId = truck.identifier
+        let dinerId = diner.identifier
+        
+//        networkController?.addCustomerRating(for: truckId, with: dinerId, customerRating: 2, completion: { (result, error) in
+//
+//        })
+    }
+    
+    
+    @IBAction func updateRating(_ ratingControl: CustomControl) {
+        title = "Diner Rating: \(ratingControl.value) stars"
+    }
+    
+
     
 
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
