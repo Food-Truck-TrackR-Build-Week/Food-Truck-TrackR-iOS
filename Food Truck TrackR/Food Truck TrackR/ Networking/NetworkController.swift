@@ -26,11 +26,7 @@ enum NetworkingError: Error {
 
 class NetworkingController {
     let baseUrl = URL(string: "https://food-truck-trackr-api.herokuapp.com")!
-<<<<<<< HEAD
     let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMDAwMDUsInVzZXJuYW1lIjoibWlndWVsaXRvN0BnbWFpbC5jb20iLCJpYXQiOjE1OTg3MjI5MzUsImV4cCI6MTU5ODgwOTMzNX0.E8Ih5mWe5CoszPF5OclFqqUwe2mBzdSRzOVJVAQOePI"
-=======
-    let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMDAwMDYsInVzZXJuYW1lIjoianVhbiIsImlhdCI6MTU5ODY3MDY0NSwiZXhwIjoxNTk4NzU3MDQ1fQ.xx4Qil5bx91PmfZzavqbhe2XF5SsnI8Y9g1LpEfTQRs"
->>>>>>> c5003f03d8b15d0d1bfd33fb581bf4a55f5ce1ab
     
     let jsonDecoder = JSONDecoder()
     let jsonEncoder = JSONEncoder()
