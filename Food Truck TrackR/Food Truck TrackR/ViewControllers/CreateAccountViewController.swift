@@ -12,6 +12,8 @@ class CreateAccountViewController: UIViewController {
     
     //MARK: - Properties and IBOutlets -
     
+    let networkController = NetworkingController()
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -61,7 +63,9 @@ class CreateAccountViewController: UIViewController {
             return
         }
         
-        ///Handle creating user's account
+//        networkController.createDiner(with: <#T##String#>, password: <#T##String#>, email: <#T##String#>, currentLocation: <#T##String?#>) { (<#Result<DinerRepresentation, NetworkingError>#>) in
+//            <#code#>
+//        }
         
         self.dismiss(animated: true, completion: nil)
     }

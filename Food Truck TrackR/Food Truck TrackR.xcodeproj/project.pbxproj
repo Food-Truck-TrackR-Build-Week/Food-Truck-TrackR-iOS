@@ -30,6 +30,8 @@
 		68852DFA24EF6F09004DAC26 /* TruckRatingVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */; };
 		68852E2824F86DE0004DAC26 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852E2724F86DE0004DAC26 /* ProfileTableViewController.swift */; };
 		68852E2C24F89B22004DAC26 /* TruckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852E2B24F89B22004DAC26 /* TruckTableViewCell.swift */; };
+		7B729F3024FADB0E007647C4 /* TextWithTruck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B729F2F24FADB0E007647C4 /* TextWithTruck.png */; };
+		7B729F3224FADCE4007647C4 /* launcImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B729F3124FADCE4007647C4 /* launcImage.png */; };
 		A4FC305F24F5F16D00E1646C /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FC305E24F5F16D00E1646C /* NetworkController.swift */; };
 		A4FC306124F5F38900E1646C /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FC306024F5F38900E1646C /* APIController.swift */; };
 		AF23C7CB24EE059E0081B805 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7CA24EE059E0081B805 /* AppDelegate.swift */; };
@@ -66,6 +68,8 @@
 		68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TruckRatingVC.storyboard; sourceTree = "<group>"; };
 		68852E2724F86DE0004DAC26 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		68852E2B24F89B22004DAC26 /* TruckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckTableViewCell.swift; sourceTree = "<group>"; };
+		7B729F2F24FADB0E007647C4 /* TextWithTruck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextWithTruck.png; sourceTree = "<group>"; };
+		7B729F3124FADCE4007647C4 /* launcImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launcImage.png; sourceTree = "<group>"; };
 		A4FC305E24F5F16D00E1646C /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		A4FC306024F5F38900E1646C /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AF23C7C724EE059E0081B805 /* Food Truck TrackR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Truck TrackR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +193,8 @@
 		AF23C7E424EE0F670081B805 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7B729F3124FADCE4007647C4 /* launcImage.png */,
+				7B729F2F24FADB0E007647C4 /* TextWithTruck.png */,
 				AF23C7DB24EE05A00081B805 /* Info.plist */,
 				AF23C7CA24EE059E0081B805 /* AppDelegate.swift */,
 				AF23C7CC24EE059E0081B805 /* SceneDelegate.swift */,
@@ -274,6 +280,8 @@
 				AF23C7D724EE05A00081B805 /* Assets.xcassets in Resources */,
 				AF23C7D224EE059E0081B805 /* Main.storyboard in Resources */,
 				68852DFA24EF6F09004DAC26 /* TruckRatingVC.storyboard in Resources */,
+				7B729F3024FADB0E007647C4 /* TextWithTruck.png in Resources */,
+				7B729F3224FADCE4007647C4 /* launcImage.png in Resources */,
 				68852DF824EF6AA3004DAC26 /* ProfileVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

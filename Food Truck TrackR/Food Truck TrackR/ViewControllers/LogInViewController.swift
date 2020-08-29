@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LogInViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class LogInViewController: UIViewController {
             print("user type has been set to: \(userType!.rawValue)")
         }
     }
+    let networkController = NetworkingController()
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -36,8 +38,13 @@ class LogInViewController: UIViewController {
     }
     
     func presentBlankTextFieldsErrorAlert() {
-        
         let alert = UIAlertController(title: "Please enter your login credentials", message: "Please make sure you enter your email and password", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    func presentSignInErrorAlert(_ message: String) {
+        var alert = UIAlertController(title: "Sign In Error", message: "There was a problem signing you in: \(message)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
@@ -48,9 +55,48 @@ class LogInViewController: UIViewController {
             return
         }
         
-        ///Handle logging in the user and retreiving their info
+        let username = emailTextField.text
+        let password = passwordTextField.text
         
-        self.dismiss(animated: true, completion: nil)
+        switch userType {
+            
+            //logging in for a diner
+        case .diner:
+            
+            networkController.loginDiner(with: username!, password: password!) { (result) in
+                
+                do {
+                    let dinerRep = try result.get()
+                    
+                } catch {
+                    print(error, error.localizedDescription)
+                    self.presentSignInErrorAlert(error.localizedDescription)
+                    return
+                }
+                
+            }
+            
+            //logging in for an operator
+        case .operator:
+            
+            networkController.loginOperator(with: username!, password: password!) { (result) in
+                
+                do {
+                    let operatorRep = try result.get()
+                    
+                } catch {
+                    print(error, error.localizedDescription)
+                    self.presentSignInErrorAlert(error.localizedDescription)
+                    return
+                }
+                
+            }
+            
+            //impossible case, this will never happen!
+        case .none:
+            print("what the heck, how did you even get here???")
+        }
+        
     }
     
 } //End of class
