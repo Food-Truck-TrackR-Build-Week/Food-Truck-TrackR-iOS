@@ -25,6 +25,15 @@ class customPin: NSObject, MKAnnotation {
 
 class MapTableViewController: UITableViewController, MKMapViewDelegate {
     
+
+    @IBAction func refresh(_ sender: Any) {
+        networkController.getAllTrucks { (_) in
+            DispatchQueue.main.async {
+                self.refreshControl?.endRefreshing()
+            }
+        }
+    }
+
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
