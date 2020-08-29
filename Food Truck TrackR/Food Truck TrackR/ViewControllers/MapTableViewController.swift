@@ -43,8 +43,8 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
             do {
                 let allTrucks = try result.get()
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
                     self.trucks = allTrucks
+                    self.tableView.reloadData()
                 }
             } catch {
                 if let error = error as? NetworkingError {
@@ -208,8 +208,8 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowProfile" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            let detailVC = segue.destination as? TruckDetailViewController
-            detailVC?.truck = self.trucks[indexPath.row]
+            let detailVC = segue.destination as! TruckDetailViewController
+            detailVC.truck = self.trucks[indexPath.row]
         } else { return }
     }
 

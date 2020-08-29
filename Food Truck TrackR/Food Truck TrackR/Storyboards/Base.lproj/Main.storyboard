@@ -9,7 +9,7 @@
         <!--TruckDetailVC-->
         <scene sceneID="GkI-Ue-edD">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="TruckDetailVC" storyboardName="TruckDetailVC" id="JZ7-Gj-hlu" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="TruckDetailVC" storyboardName="TruckDetailVC" referencedIdentifier="TruckDetailVC" id="JZ7-Gj-hlu" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="mWB-mx-eur"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39r-B9-bl1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
