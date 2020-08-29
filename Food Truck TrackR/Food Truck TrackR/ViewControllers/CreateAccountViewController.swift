@@ -12,6 +12,11 @@ class CreateAccountViewController: UIViewController {
     
     //MARK: - Properties and IBOutlets -
     
+    var userType: UserType? {
+        didSet {
+            print("user type has been set to: \(userType!.rawValue)")
+        }
+    }
     let networkController = NetworkingController()
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -47,11 +52,18 @@ class CreateAccountViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func presentCreateAccountErrorAlert() {
+        let title = "Error"
+        let message = "Sorry, but for some reason we were not able to create an account for you. Please try again later"
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(action)
+        self.present(alert, animated: true)
+    }
+    
     @IBAction func createAccountButtonTapped(_ sender: UIButton) {
-
-        guard !firstNameTextField.text!.isEmpty,
-            !lastNameTextField.text!.isEmpty,
-            !emailTextField.text!.isEmpty,
+        
+        guard !emailTextField.text!.isEmpty,
             !passwordTextField.text!.isEmpty,
             !passwordConfirmationTextField.text!.isEmpty else {
                 presentBlankTextFieldsErrorAlert()
@@ -63,11 +75,53 @@ class CreateAccountViewController: UIViewController {
             return
         }
         
-//        networkController.createDiner(with: <#T##String#>, password: <#T##String#>, email: <#T##String#>, currentLocation: <#T##String?#>) { (<#Result<DinerRepresentation, NetworkingError>#>) in
-//            <#code#>
-//        }
+        let username = emailTextField.text!
+        let password = passwordTextField.text!
         
-        self.dismiss(animated: true, completion: nil)
+        switch userType {
+            
+        //Creates account and logs in for a diner
+        case .diner:
+            networkController.createDiner(with: username, password: password, email: username, currentLocation: nil) { (result) in
+                
+                do {
+                    let createdDiner = try result.get()
+                    self.networkController.loggedInDiner = createdDiner
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        self.presentCreateAccountErrorAlert()
+                    }
+                    print(error)
+                    return
+                }
+            }
+            
+        //Creates account and logs in for an operator
+        case .operator:
+            networkController.createOperator(with: username, password: password, email: username) { (result) in
+                
+                do {
+                    let createdOperator = try result.get()
+                    self.networkController.loggedInOperator = createdOperator
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        self.presentCreateAccountErrorAlert()
+                    }
+                    print(error)
+                    return
+                }
+            }
+            
+        //impossible case, you will never get here!
+        case .none:
+            print("what the heck, how did you get here?!")
+        }
     }
     
 } //End of class

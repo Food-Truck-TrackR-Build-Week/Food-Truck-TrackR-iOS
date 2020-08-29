@@ -10,10 +10,10 @@ import Foundation
 
 extension String {
     
-    static let loginViewController     =  "LoginViewController"
-    static let operatorLoginSegue      =  "OperatorLoginSegue"
-    static let dinerLoginSegue         =  "DinerLoginSegue"
-    static let loginStoryboardSegue    =  "LoginStoryboardSegue"
-    
+    static let loginViewController           =      "LoginViewController"
+    static let operatorLoginSegue            =      "OperatorLoginSegue"
+    static let dinerLoginSegue               =      "DinerLoginSegue"
+    static let loginStoryboardSegue          =      "LoginStoryboardSegue"
+    static let createAccountSegue            =      "CreateAccountSegue"
     
 }

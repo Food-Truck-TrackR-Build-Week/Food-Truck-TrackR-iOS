@@ -35,6 +35,7 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
         }
     }
     let networkController = NetworkingController()
+    var userIsLoggedIn: Bool = false
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -65,7 +66,8 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
                 }
             }
         }
-        if true {
+        if !userIsLoggedIn {
+            userIsLoggedIn = true
             performSegue(withIdentifier: .loginStoryboardSegue, sender: nil)
         }
     }

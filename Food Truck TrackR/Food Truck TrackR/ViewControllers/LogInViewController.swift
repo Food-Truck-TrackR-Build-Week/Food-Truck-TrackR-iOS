@@ -44,7 +44,7 @@ class LogInViewController: UIViewController {
     }
     
     func presentSignInErrorAlert(_ message: String) {
-        var alert = UIAlertController(title: "Sign In Error", message: "There was a problem signing you in: \(message)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Sign In Error", message: "There was a problem signing you in: \(message)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
@@ -67,12 +67,14 @@ class LogInViewController: UIViewController {
             
         //logging in for a diner
         case .diner:
-            
             networkController.loginDiner(with: username!, password: password!) { (result) in
                 
                 do {
                     let dinerRep = try result.get()
-                    
+                    self.networkController.loggedInDiner = dinerRep
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
                 } catch {
                     DispatchQueue.main.async {
                         self.presentSignInErrorAlert("Please double check your username and password and try again")
@@ -80,31 +82,39 @@ class LogInViewController: UIViewController {
                     print(error)
                     return
                 }
-                
             }
             
         //logging in for an operator
         case .operator:
-            
             networkController.loginOperator(with: username!, password: password!) { (result) in
                 
                 do {
                     let operatorRep = try result.get()
-                    
+                    self.networkController.loggedInOperator = operatorRep
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
                 } catch {
                     DispatchQueue.main.async {
                         self.presentSignInErrorAlert("Please double check your username and password and try again")
                     }
                     print(error)
-                    return                }
-                
+                    return
+                }
             }
             
-        //impossible case, this will never happen!
+        //impossible case, you will never get here!
         case .none:
-            print("what the heck, how did you even get here???")
+            print("what the heck, how did you get here?!")
         }
-        
+    }
+    
+    //Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == .createAccountSegue {
+            let createAccountVC = segue.destination as! CreateAccountViewController
+            createAccountVC.userType = userType
+        }
     }
     
 } //End of class
