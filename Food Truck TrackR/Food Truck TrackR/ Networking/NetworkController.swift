@@ -31,6 +31,9 @@ class NetworkingController {
     let jsonDecoder = JSONDecoder()
     let jsonEncoder = JSONEncoder()
     
+    var loggedInDiner: DinerRepresentation?
+    var loggedInOperator: OperatorRepresentation?
+    
     //MARK: - GET Requests
     
     //returns an array of all trucks
