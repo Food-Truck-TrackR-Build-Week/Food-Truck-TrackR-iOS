@@ -49,6 +49,21 @@ class LogInViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func presentInvalidLoginCredentialsAlert() {
+        let alert = UIAlertController(title: "Invalid Username/Password", message: "Looks like the credentials you entered were not valid, please try again", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true)
+    }
+    
+    func handleDefaultError(_ error: Error) {
+        DispatchQueue.main.async {
+            self.presentSignInErrorAlert("Sorry, we were not able to sign you in at this time, please try again later")
+        }
+        print(error)
+        return
+    }
+    
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         guard !emailTextField.text!.isEmpty, !passwordTextField.text!.isEmpty else {
             presentBlankTextFieldsErrorAlert()
@@ -76,11 +91,31 @@ class LogInViewController: UIViewController {
                         self.dismiss(animated: true, completion: nil)
                     }
                 } catch {
-                    DispatchQueue.main.async {
-                        self.presentSignInErrorAlert("Please double check your username and password and try again")
+                    
+                    switch error as! NetworkingError {
+
+                    case .noAuth:
+                        self.handleDefaultError(error)
+                    case .badAuth:
+                        self.handleDefaultError(error)
+                    case .noData:
+                        self.handleDefaultError(error)
+                    case .badData:
+                        self.handleDefaultError(error)
+                    case .decodingError:
+                        self.handleDefaultError(error)
+                    case .encodingError:
+                        self.handleDefaultError(error)
+                    case .invalidCredentials:
+                        DispatchQueue.main.async {
+                            print(error)
+                            self.presentInvalidLoginCredentialsAlert()
+                            return
+                        }
+                    case .existingAccount:
+                        NSLog("ERROR: This error is only used when creating an account")
                     }
-                    print(error)
-                    return
+
                 }
             }
             
@@ -95,17 +130,35 @@ class LogInViewController: UIViewController {
                         self.dismiss(animated: true, completion: nil)
                     }
                 } catch {
-                    DispatchQueue.main.async {
-                        self.presentSignInErrorAlert("Please double check your username and password and try again")
+                    switch error as! NetworkingError {
+                        
+                    case .noAuth:
+                        self.handleDefaultError(error)
+                    case .badAuth:
+                        self.handleDefaultError(error)
+                    case .noData:
+                        self.handleDefaultError(error)
+                    case .badData:
+                        self.handleDefaultError(error)
+                    case .decodingError:
+                        self.handleDefaultError(error)
+                    case .encodingError:
+                        self.handleDefaultError(error)
+                    case .invalidCredentials:
+                        DispatchQueue.main.async {
+                            print(error)
+                            self.presentInvalidLoginCredentialsAlert()
+                            return
+                        }
+                    case .existingAccount:
+                        NSLog("ERROR: This error is only used when creating an account")
                     }
-                    print(error)
-                    return
                 }
             }
             
         //impossible case, you will never get here!
         case .none:
-            print("what the heck, how did you get here?!")
+            print("If you're seeing this, it means that something went wrong in the ChooseUserTypeViewController, and that the userType was not identified or passed")
         }
     }
     

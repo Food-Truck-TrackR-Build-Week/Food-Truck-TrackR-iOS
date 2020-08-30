@@ -8,6 +8,11 @@
 
 import Foundation
 
+//This will be used to help check if the login credentials were invalid
+struct LoginError: Codable {
+    var message: String
+}
+
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
@@ -22,25 +27,60 @@ enum NetworkingError: Error {
     case badData
     case decodingError
     case encodingError
+    case invalidCredentials
+    case existingAccount
 }
 
 class NetworkingController {
+    
+    //MARK: - Properties
+    
     let baseUrl = URL(string: "https://food-truck-trackr-api.herokuapp.com")!
-    let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMDAwMDUsInVzZXJuYW1lIjoibWlndWVsaXRvN0BnbWFpbC5jb20iLCJpYXQiOjE1OTg3MjI5MzUsImV4cCI6MTU5ODgwOTMzNX0.E8Ih5mWe5CoszPF5OclFqqUwe2mBzdSRzOVJVAQOePI"
+    var token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMDAwMDUsInVzZXJuYW1lIjoibWlndWVsaXRvN0BnbWFpbC5jb20iLCJpYXQiOjE1OTg3MjI5MzUsImV4cCI6MTU5ODgwOTMzNX0.E8Ih5mWe5CoszPF5OclFqqUwe2mBzdSRzOVJVAQOePI"
     
     let jsonDecoder = JSONDecoder()
     let jsonEncoder = JSONEncoder()
     
     //These properties will be used to store the user's infromation during the app's lifecycle
+    
+    //Use this to identify which type of user is logged in
+    var loggedInUserType: UserType?
+    
+    //Use these to know what kind of work you are doing (based on who the current logged in user is)
     var diner: Diner?
     var `operator`: Operator?
-    var dinerRep: DinerRepresentaion?
-    var operatorRep: OperatorRepresentation?
+    var dinerRep: DinerRepresentaion? {
+        didSet {
+            diner = dinerRep!.diner
+            token = dinerRep!.token
+            loggedInUserType = .diner
+            self.getDinerFavoriteTrucks(for: diner!.dinerId) { (result) in
+                do {
+                    self.trucks = try result.get()
+                    print("NOTIFICATION: favorite trucks acquired")
+                } catch {
+                    print("ERROR: Could not retrieve list of favorite trucks: \(error)")
+                }
+            }
+        }
+    }
+    var operatorRep: OperatorRepresentation? {
+        didSet {
+            `operator` = operatorRep?.operator
+             token = operatorRep!.token
+            loggedInUserType = .operator
+             getOperatorTrucks(for: `operator`!.operatorId) { (result) in
+                do {
+                    self.trucks = try result.get()
+                    print("NOTIFICATION: Owned trucks acquired")
+                } catch {
+                    print("ERROR: Could not retrieve list of owned trucks: \(error)")
+                }
+            }
+        }
+    }
     
-    //This property will be used to store an array of trucks for whoever decideds to log in.
-    //If an operator logs in, it will be populated with the trucks that they own
-    //If a diner logs in, it will be populated with the trucks in their favorites list
-    //Use this when the logged in user adds a truck to their list (owned trucks, or favorited trucks)
+    //This property will be used to store an array of trucks for the logged in user (Diner or Operator)
     var trucks: [TruckRepresentation] = []
     
     //MARK: - GET Requests
@@ -538,7 +578,7 @@ class NetworkingController {
         }.resume()
     }
     
-    //MARK: - POST Requests
+    //MARK: - POST Requests -
     
     struct CreateDinerBody: Codable {
         let username: String
@@ -637,15 +677,6 @@ class NetworkingController {
         let password: String
     }
     
-    struct LoginIvalidCredentialsJSONObject: Codable {
-        var key: String?
-        var value: String?
-    }
-    
-    struct LoginError: Codable {
-        var stuff = LoginIvalidCredentialsJSONObject()
-    }
-    
     //logs in as diner
     func loginDiner(with username: String, password: String, completion: @escaping (Result<DinerRepresentaion, NetworkingError>) -> Void) {
         let reqEndpoint = "/api/auth/login"
@@ -676,11 +707,14 @@ class NetworkingController {
                 return
             }
             
+            //Testing if the login credentials were valid
             do {
                 let possibleInvalidCredentialsError = try self.jsonDecoder.decode(LoginError.self, from: data)
-                completion(.failure(.badAuth))
+                print(possibleInvalidCredentialsError)
+                completion(.failure(.invalidCredentials))
+                return
             } catch {
-                print("could not retrieve error")
+                print("Login credentials were valid")
             }
                
             do {
@@ -721,6 +755,16 @@ class NetworkingController {
             guard let data = data else {
                 completion(.failure(.noData))
                 return
+            }
+            
+            //Testing if the login credentials were valid
+            do {
+                let possibleInvalidCredentialsError = try self.jsonDecoder.decode(LoginError.self, from: data)
+                print(possibleInvalidCredentialsError)
+                completion(.failure(.invalidCredentials))
+                return
+            } catch {
+                print("Login credentials were valid")
             }
                
             do {

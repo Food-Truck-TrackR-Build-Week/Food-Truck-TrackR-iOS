@@ -67,6 +67,21 @@ class CreateAccountViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func presentExistingAccountErrorAlert() {
+        let alert = UIAlertController(title: "Account already exists", message: "It looks like that username has already been taken, try another one!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true)
+    }
+    
+    func handleDefaultError(_ error: Error) {
+        DispatchQueue.main.async {
+            self.presentCreateAccountErrorAlert()
+            print(error)
+            return
+        }
+    }
+    
     @IBAction func createAccountButtonTapped(_ sender: UIButton) {
         
         guard !emailTextField.text!.isEmpty,
@@ -100,9 +115,6 @@ class CreateAccountViewController: UIViewController {
                         do {
                             let dinerRep = try result.get()
                             self.networkController.dinerRep = dinerRep
-                            DispatchQueue.main.async {
-                                self.dismiss(animated: true, completion: nil)
-                            }
                         } catch {
                             DispatchQueue.main.async {
                                 self.presentSignInErrorAlert("Could not log in, please try to login later")
@@ -116,54 +128,87 @@ class CreateAccountViewController: UIViewController {
                         self.dismiss(animated: true, completion: nil)
                     }
                 } catch {
-                    DispatchQueue.main.async {
-                        self.presentCreateAccountErrorAlert()
+                    switch error as! NetworkingError {
+                        
+                    case .noAuth:
+                        self.handleDefaultError(error)
+                    case .badAuth:
+                        self.handleDefaultError(error)
+                    case .noData:
+                        self.handleDefaultError(error)
+                    case .badData:
+                        self.handleDefaultError(error)
+                    case .decodingError:
+                        self.handleDefaultError(error)
+                    case .encodingError:
+                        self.handleDefaultError(error)
+                    case .invalidCredentials:
+                        self.handleDefaultError(error)
+                    case .existingAccount:
+                        DispatchQueue.main.async {
+                            print(error)
+                            self.presentExistingAccountErrorAlert()
+                            return
+                        }
                     }
-                    print(error)
-                    return
                 }
             }
             
         //Creates account and logs in for an operator
         case .operator:
+            //create account
             networkController.createOperator(with: username, password: password, email: username) { (result) in
                 
                 do {
                     let createdOperator = try result.get()
                     self.networkController.operator = createdOperator
+                    
+                    //log into account
+                    self.networkController.loginOperator(with: username, password: password) { (result) in
+                        do {
+                            let operatorRep = try result.get()
+                            self.networkController.operatorRep = operatorRep
+                        } catch {
+                            DispatchQueue.main.async {
+                                self.presentSignInErrorAlert("Could not log in, please try to login later")
+                            }
+                            print(error)
+                            return
+                        }
+                    }
+                    
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }
                 } catch {
-                    DispatchQueue.main.async {
-                        self.presentCreateAccountErrorAlert()
+                    switch error as! NetworkingError {
+                        case .noAuth:
+                            self.handleDefaultError(error)
+                        case .badAuth:
+                            self.handleDefaultError(error)
+                        case .noData:
+                            self.handleDefaultError(error)
+                        case .badData:
+                            self.handleDefaultError(error)
+                        case .decodingError:
+                            self.handleDefaultError(error)
+                        case .encodingError:
+                            self.handleDefaultError(error)
+                        case .invalidCredentials:
+                            self.handleDefaultError(error)
+                        case .existingAccount:
+                            DispatchQueue.main.async {
+                                print(error)
+                                self.presentExistingAccountErrorAlert()
+                                return
+                            }
                     }
-                    print(error)
-                    return
                 }
-            }
-            
-            networkController.loginOperator(with: username, password: password) { (result) in
-                
-                do {
-                    let operatorRep = try result.get()
-                    self.networkController.operatorRep = operatorRep
-                    DispatchQueue.main.async {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                } catch {
-                    DispatchQueue.main.async {
-                        self.presentSignInErrorAlert("Could not log in, please try to login later")
-                    }
-                    print(error)
-                    return
-                }
-                
             }
             
         //impossible case, you will never get here!
         case .none:
-            print("what the heck, how did you get here?!")
+            print("ERROR: If you're seeing this, it means that something went wrong in the loginViewController, and it means that the user type was not identified or passed")
         }
     }
     

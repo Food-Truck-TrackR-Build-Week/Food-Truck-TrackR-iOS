@@ -71,6 +71,10 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
                         NSLog("Error: The data could not be decoded.")
                     case .encodingError:
                         NSLog("Error: The data could not be encoded.")
+                    case .invalidCredentials:
+                        break
+                    case .existingAccount:
+                        NSLog("ERROR: This error is only used when creating an account")
                     }
                 }
             }
