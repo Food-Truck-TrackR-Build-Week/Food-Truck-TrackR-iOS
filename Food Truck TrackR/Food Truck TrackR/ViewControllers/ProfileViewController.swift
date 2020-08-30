@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
 
     // MARK: - Properties
-    var diner: DinerRepresentation?
+    var diner: Diner?
 
     override func viewDidLoad() {
         super.viewDidLoad()

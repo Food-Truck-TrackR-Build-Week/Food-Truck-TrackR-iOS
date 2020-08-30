@@ -11,7 +11,7 @@ import UIKit
 class ProfileTableViewController: UITableViewController {
 
     // MARK: - Properties
-    var diner: DinerRepresentation?
+    var diner: Diner?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,15 +19,15 @@ class ProfileTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return diner?.favoriteTrucks?.count ?? 0
-    }
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return diner?.favoriteTrucks.count ?? 0
+//    }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteTruckCell", for: indexPath)
 
-        cell.textLabel?.text = diner?.favoriteTrucks?[indexPath.row].name
+//        cell.textLabel?.text = diner?.favoriteTrucks[indexPath.row].name
         return cell
     }
 
@@ -36,7 +36,7 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.deleteRows(at: [indexPath], with: .fade)
-            diner?.favoriteTrucks?.remove(at: indexPath.row)
+//            diner?.favoriteTrucks.remove(at: indexPath.row)
         }
     }
 }

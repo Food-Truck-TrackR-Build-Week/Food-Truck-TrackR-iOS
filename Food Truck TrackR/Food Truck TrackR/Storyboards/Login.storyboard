@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Log In View Controller-->
+        <!--Sign in-->
         <scene sceneID="ulQ-FK-bd8">
             <objects>
                 <viewController id="5vC-zZ-Xwf" customClass="LogInViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,7 +39,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfP-6s-qHO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="65"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FQB-mP-ELb">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FQB-mP-ELb">
                                                                         <rect key="frame" x="10" y="0.0" width="280" height="65"/>
                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
@@ -117,7 +117,7 @@
                                                             <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="Plg-aH-lv0" kind="show" id="iv9-9p-Teu"/>
+                                                            <segue destination="Plg-aH-lv0" kind="show" identifier="CreateAccountSegue" id="iv9-9p-Teu"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -164,7 +164,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VNO-mK-T5m"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tGT-MU-3RO"/>
+                    <navigationItem key="navigationItem" title="Sign in" id="tGT-MU-3RO"/>
                     <connections>
                         <outlet property="emailTextField" destination="FQB-mP-ELb" id="jVQ-iD-wWT"/>
                         <outlet property="passwordTextField" destination="ptI-8c-h8r" id="zgx-l1-V1c"/>
@@ -174,7 +174,7 @@
             </objects>
             <point key="canvasLocation" x="2622" y="513"/>
         </scene>
-        <!--Choose User Type View Controller-->
+        <!--Welcome!-->
         <scene sceneID="HF5-se-tN0">
             <objects>
                 <viewController id="ptM-Gx-uyg" customClass="ChooseUserTypeViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
@@ -182,8 +182,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHO IS THIS?!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LN5-uB-bpA">
-                                <rect key="frame" x="98.5" y="113" width="217" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who do we have here?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LN5-uB-bpA">
+                                <rect key="frame" x="45.5" y="113" width="323.5" height="37"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -211,7 +211,7 @@
                                     <constraint firstAttribute="height" constant="100" id="dm0-Ut-gM7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <state key="normal" title="A HUNGRY CUSTOMER😋">
+                                <state key="normal" title="A HUNGRY CUSTOMER 🌯">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -230,7 +230,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B0m-DP-h6y"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Jgn-BN-FeM"/>
+                    <navigationItem key="navigationItem" title="Welcome!" id="Jgn-BN-FeM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ic-tC-kRs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,7 +255,7 @@
             </objects>
             <point key="canvasLocation" x="952" y="21"/>
         </scene>
-        <!--New Truck Owner-->
+        <!--New Truck Owner 🚚-->
         <scene sceneID="JA2-2O-ecX">
             <objects>
                 <viewController id="bfc-Sl-tvN" customClass="CreateAccountViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
@@ -353,7 +353,7 @@
                                                                     <constraint firstAttribute="width" constant="350" id="4Og-7b-8PM"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="new-password"/>
+                                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="one-time-code"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -373,7 +373,7 @@
                                                                     <constraint firstAttribute="height" constant="40" id="mqf-d7-yrF"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="new-password"/>
+                                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="one-time-code"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -430,7 +430,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KbT-Mn-fgy"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Truck Owner" id="t6q-Ut-p9j"/>
+                    <navigationItem key="navigationItem" title="New Truck Owner 🚚" id="t6q-Ut-p9j"/>
                     <size key="freeformSize" width="414" height="1122"/>
                     <connections>
                         <outlet property="emailTextField" destination="nQk-YA-Yw8" id="WAn-o0-39s"/>
@@ -444,7 +444,7 @@
             </objects>
             <point key="canvasLocation" x="3439" y="-342"/>
         </scene>
-        <!--Log In View Controller-->
+        <!--Sign In-->
         <scene sceneID="Rby-XS-Ebn">
             <objects>
                 <viewController id="nHx-iA-VNQ" customClass="LogInViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
@@ -476,7 +476,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbS-lF-FR0">
                                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="65"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JuI-9D-Ucn">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JuI-9D-Ucn">
                                                                         <rect key="frame" x="10" y="0.0" width="280" height="65"/>
                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" textContentType="email"/>
@@ -554,7 +554,7 @@
                                                             <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="bfc-Sl-tvN" kind="show" id="KLa-wG-UDR"/>
+                                                            <segue destination="bfc-Sl-tvN" kind="show" identifier="CreateAccountSegue" id="KLa-wG-UDR"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -601,7 +601,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DlQ-d6-wAu"/>
                     </view>
-                    <navigationItem key="navigationItem" id="AQr-YS-bUA"/>
+                    <navigationItem key="navigationItem" title="Sign In" id="AQr-YS-bUA"/>
                     <connections>
                         <outlet property="emailTextField" destination="JuI-9D-Ucn" id="OjR-Gf-Y1y"/>
                         <outlet property="passwordTextField" destination="luq-B8-bfJ" id="eID-02-wMc"/>
@@ -611,7 +611,7 @@
             </objects>
             <point key="canvasLocation" x="2622" y="-342"/>
         </scene>
-        <!--New Customer-->
+        <!--New Customer 🌯-->
         <scene sceneID="G9V-gv-ef1">
             <objects>
                 <viewController id="Plg-aH-lv0" customClass="CreateAccountViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
@@ -709,7 +709,7 @@
                                                                     <constraint firstAttribute="height" constant="45" id="ydn-Ul-vRf"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="new-password"/>
+                                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="one-time-code"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -729,7 +729,7 @@
                                                                     <constraint firstAttribute="width" constant="350" id="qAH-Su-5Ym"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="new-password"/>
+                                                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES" textContentType="one-time-code"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -786,7 +786,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bg9-Io-c6w"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Customer" id="PPW-aX-yTD"/>
+                    <navigationItem key="navigationItem" title="New Customer 🌯" id="PPW-aX-yTD"/>
                     <size key="freeformSize" width="414" height="1122"/>
                     <connections>
                         <outlet property="emailTextField" destination="fFe-kU-HtX" id="cyZ-GI-LIs"/>

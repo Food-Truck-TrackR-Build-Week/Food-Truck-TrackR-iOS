@@ -21,7 +21,7 @@ class TruckRatingViewController: UIViewController {
             updateViews()
         }
     }
-    var diner: DinerRepresentation?
+    var diner: Diner?
     
 
     override func viewDidLoad() {
@@ -52,8 +52,6 @@ class TruckRatingViewController: UIViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let truck = truck else { return }
         guard let diner = diner else { return }
-        let truckId = truck.identifier
-        let dinerId = diner.identifier
         
 //        networkController?.addCustomerRating(for: truckId, with: dinerId, customerRating: 2, completion: { (result, error) in
 //

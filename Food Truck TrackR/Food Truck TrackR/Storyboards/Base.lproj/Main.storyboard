@@ -87,11 +87,22 @@
                     </refreshControl>
                     <connections>
                         <outlet property="mapView" destination="FP5-Nq-xYg" id="Jy5-7w-IU8"/>
+                        <segue destination="yEo-hL-nB6" kind="show" identifier="LoginStoryboardSegue" id="kwC-lI-V6K"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oim-TT-Tkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="987" y="138"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="wcd-3A-xRI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="yEo-hL-nB6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="615-AY-aFh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ExF-3D-qpd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1573" y="155"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0pH-da-AYM">

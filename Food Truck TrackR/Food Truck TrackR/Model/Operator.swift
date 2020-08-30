@@ -8,11 +8,8 @@
 
 import Foundation
 
-struct OperatorRepresentation: Codable {
-    var identifier: String
-    var userID: Double
+struct Operator: Codable {
+    var operatorId: Int
     var username: String
-    var password: String
     var email: String
-    var trucksOwned: [TruckRepresentation]?
 }
