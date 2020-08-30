@@ -8,12 +8,11 @@
 
 import Foundation
 
-struct DinerRepresentation: Codable {
-    var identifier: String
-    var userID: Double
+struct Diner: Codable {
+    
+    var dinerId: Int
     var username: String
-    var password: String
     var email: String
-    var favoriteTrucks: [TruckRepresentation]?
-    var location: String?
+    var currentLocation: String?
+
 }

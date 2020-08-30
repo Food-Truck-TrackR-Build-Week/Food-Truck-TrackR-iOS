@@ -20,7 +20,7 @@ class TruckDetailViewController: UIViewController {
     @IBOutlet var favoriteButton: UIBarButtonItem!
 
     // MARK: - Properites
-    var diner: DinerRepresentation?
+    var diner: Diner?
     var truck: TruckRepresentation?
 
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class TruckDetailViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         guard let truck = truck else { return }
-        diner?.favoriteTrucks?.append(truck)
+        //diner?.favoriteTrucks.append(truck)
     }
 
     // MARK: - Functions

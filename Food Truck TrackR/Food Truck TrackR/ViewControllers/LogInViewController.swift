@@ -71,7 +71,7 @@ class LogInViewController: UIViewController {
                 
                 do {
                     let dinerRep = try result.get()
-                    self.networkController.loggedInDiner = dinerRep
+                    self.networkController.dinerRep = dinerRep
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -90,7 +90,7 @@ class LogInViewController: UIViewController {
                 
                 do {
                     let operatorRep = try result.get()
-                    self.networkController.loggedInOperator = operatorRep
+                    self.networkController.operatorRep = operatorRep
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }

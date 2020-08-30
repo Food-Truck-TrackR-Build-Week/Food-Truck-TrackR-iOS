@@ -61,6 +61,12 @@ class CreateAccountViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func presentSignInErrorAlert(_ message: String) {
+        let alert = UIAlertController(title: "Sign In Error", message: "There was a problem signing you in: \(message)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
     @IBAction func createAccountButtonTapped(_ sender: UIButton) {
         
         guard !emailTextField.text!.isEmpty,
@@ -86,7 +92,26 @@ class CreateAccountViewController: UIViewController {
                 
                 do {
                     let createdDiner = try result.get()
-                    self.networkController.loggedInDiner = createdDiner
+                    self.networkController.diner = createdDiner
+                    
+                    //This will log the created user into the app
+                    self.networkController.loginDiner(with: username, password: password) { (result) in
+                        
+                        do {
+                            let dinerRep = try result.get()
+                            self.networkController.dinerRep = dinerRep
+                            DispatchQueue.main.async {
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        } catch {
+                            DispatchQueue.main.async {
+                                self.presentSignInErrorAlert("Could not log in, please try to login later")
+                            }
+                            print(error)
+                            return
+                        }
+                    }
+                    
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -105,7 +130,7 @@ class CreateAccountViewController: UIViewController {
                 
                 do {
                     let createdOperator = try result.get()
-                    self.networkController.loggedInOperator = createdOperator
+                    self.networkController.operator = createdOperator
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -116,6 +141,24 @@ class CreateAccountViewController: UIViewController {
                     print(error)
                     return
                 }
+            }
+            
+            networkController.loginOperator(with: username, password: password) { (result) in
+                
+                do {
+                    let operatorRep = try result.get()
+                    self.networkController.operatorRep = operatorRep
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        self.presentSignInErrorAlert("Could not log in, please try to login later")
+                    }
+                    print(error)
+                    return
+                }
+                
             }
             
         //impossible case, you will never get here!

@@ -31,8 +31,17 @@ class NetworkingController {
     let jsonDecoder = JSONDecoder()
     let jsonEncoder = JSONEncoder()
     
-    var loggedInDiner: DinerRepresentation?
-    var loggedInOperator: OperatorRepresentation?
+    //These properties will be used to store the user's infromation during the app's lifecycle
+    var diner: Diner?
+    var `operator`: Operator?
+    var dinerRep: DinerRepresentaion?
+    var operatorRep: OperatorRepresentation?
+    
+    //This property will be used to store an array of trucks for whoever decideds to log in.
+    //If an operator logs in, it will be populated with the trucks that they own
+    //If a diner logs in, it will be populated with the trucks in their favorites list
+    //Use this when the logged in user adds a truck to their list (owned trucks, or favorited trucks)
+    var trucks: [TruckRepresentation] = []
     
     //MARK: - GET Requests
     
@@ -136,7 +145,7 @@ class NetworkingController {
     }
     
     //returns the diner with the given id
-    func getDiner(for id: Int, completion: @escaping (Result<DinerRepresentation, NetworkingError>) -> Void) {
+    func getDiner(for id: Int, completion: @escaping (Result<Diner, NetworkingError>) -> Void) {
         let reqEndpoint = "/api/diners/:\(id)"
         let url = baseUrl.appendingPathComponent(reqEndpoint)
         
@@ -159,7 +168,7 @@ class NetworkingController {
             }
             
             do {
-                let diner = try self.jsonDecoder.decode(DinerRepresentation.self, from: data)
+                let diner = try self.jsonDecoder.decode(Diner.self, from: data)
                 completion(.success(diner))
             } catch {
                 completion(.failure(.decodingError))
@@ -200,7 +209,7 @@ class NetworkingController {
     }
     
     //returns the operator with the given id
-    func getOperator(for id: Int, completion: @escaping (Result<OperatorRepresentation, NetworkingError>) -> Void) {
+    func getOperator(for id: Int, completion: @escaping (Result<Operator, NetworkingError>) -> Void) {
         let reqEndpoint = "/api/operators/:\(id)"
         let url = baseUrl.appendingPathComponent(reqEndpoint)
         
@@ -222,7 +231,7 @@ class NetworkingController {
             }
             
             do {
-                let op = try self.jsonDecoder.decode(OperatorRepresentation.self, from: data)
+                let op = try self.jsonDecoder.decode(Operator.self, from: data)
                 completion(.success(op))
             } catch {
                 completion(.failure(.decodingError))
@@ -535,11 +544,10 @@ class NetworkingController {
         let username: String
         let password: String
         let email: String
-        let currentLocation: String?
     }
     
     //creates a new diner
-    func createDiner(with username: String, password: String, email: String, currentLocation: String?, completion: @escaping (Result<DinerRepresentation, NetworkingError>) -> Void) {
+    func createDiner(with username: String, password: String, email: String, currentLocation: String?, completion: @escaping (Result<Diner, NetworkingError>) -> Void) {
         let reqEndpoint = "/api/auth/register/diner"
         let url = baseUrl.appendingPathComponent(reqEndpoint)
         
@@ -548,7 +556,7 @@ class NetworkingController {
         request.setValue(token, forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let jsonObject = CreateDinerBody(username: username, password: password, email: email, currentLocation: currentLocation)
+        let jsonObject = CreateDinerBody(username: username, password: password, email: email)
         
         do {
             let jsonBody = try jsonEncoder.encode(jsonObject)
@@ -569,7 +577,7 @@ class NetworkingController {
             }
             
             do {
-                let newDiner = try self.jsonDecoder.decode(DinerRepresentation.self, from: data)
+                let newDiner = try self.jsonDecoder.decode(Diner.self, from: data)
                 completion(.success(newDiner))
             } catch {
                 completion(.failure(.decodingError))
@@ -585,7 +593,7 @@ class NetworkingController {
     }
     
     //creates a new operator
-    func createOperator(with username: String, password: String, email: String, completion: @escaping (Result<OperatorRepresentation, NetworkingError>) -> Void) {
+    func createOperator(with username: String, password: String, email: String, completion: @escaping (Result<Operator, NetworkingError>) -> Void) {
         let reqEndpoint = "/api/auth/register/operator"
         let url = baseUrl.appendingPathComponent(reqEndpoint)
            
@@ -615,7 +623,7 @@ class NetworkingController {
             }
                
             do {
-                let newOperator = try self.jsonDecoder.decode(OperatorRepresentation.self, from: data)
+                let newOperator = try self.jsonDecoder.decode(Operator.self, from: data)
                 completion(.success(newOperator))
             } catch {
                 completion(.failure(.decodingError))
@@ -629,8 +637,17 @@ class NetworkingController {
         let password: String
     }
     
+    struct LoginIvalidCredentialsJSONObject: Codable {
+        var key: String?
+        var value: String?
+    }
+    
+    struct LoginError: Codable {
+        var stuff = LoginIvalidCredentialsJSONObject()
+    }
+    
     //logs in as diner
-    func loginDiner(with username: String, password: String, completion: @escaping (Result<DinerRepresentation, NetworkingError>) -> Void) {
+    func loginDiner(with username: String, password: String, completion: @escaping (Result<DinerRepresentaion, NetworkingError>) -> Void) {
         let reqEndpoint = "/api/auth/login"
         let url = baseUrl.appendingPathComponent(reqEndpoint)
            
@@ -658,9 +675,16 @@ class NetworkingController {
                 completion(.failure(.noData))
                 return
             }
+            
+            do {
+                let possibleInvalidCredentialsError = try self.jsonDecoder.decode(LoginError.self, from: data)
+                completion(.failure(.badAuth))
+            } catch {
+                print("could not retrieve error")
+            }
                
             do {
-                let diner = try self.jsonDecoder.decode(DinerRepresentation.self, from: data)
+                let diner = try self.jsonDecoder.decode(DinerRepresentaion.self, from: data)
                 completion(.success(diner))
             } catch {
                 completion(.failure(.decodingError))
@@ -1005,7 +1029,7 @@ class NetworkingController {
     }
     
     //updates the currentLocation of the diner with the given id
-    func updateDinerLocation(for dinerID: Int, with currentLocation: String,completion: @escaping (Result<DinerRepresentation, NetworkingError>) -> Void) {
+    func updateDinerLocation(for dinerID: Int, with currentLocation: String,completion: @escaping (Result<Diner, NetworkingError>) -> Void) {
         let reqEndpoint = "/api/diners/\(dinerID)"
         let url = baseUrl.appendingPathComponent(reqEndpoint)
         
@@ -1033,7 +1057,7 @@ class NetworkingController {
             }
             
             do {
-                let diner = try self.jsonDecoder.decode(DinerRepresentation.self, from: data)
+                let diner = try self.jsonDecoder.decode(Diner.self, from: data)
                 completion(.success(diner))
             } catch {
                 completion(.failure(.decodingError))
