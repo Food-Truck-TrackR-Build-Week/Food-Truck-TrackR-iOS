@@ -27,7 +27,31 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
     
 
     @IBAction func refresh(_ sender: Any) {
-        networkController.getAllTrucks { (_) in
+        networkController.getAllTrucks { (result) in
+            
+            do {
+                self.trucks = try result.get()
+                print("All trucks were retrieved")
+            } catch {
+                switch error as! NetworkingError {
+                    
+               case .noAuth:
+                    NSLog("Error: No bearer token exists.")
+                case .badAuth:
+                    NSLog("Error: Bearer token invalid.")
+                case .noData:
+                    NSLog("Error: The response had no data.")
+                case .badData:
+                    NSLog("Error: Corrupt data files.")
+                case .decodingError:
+                    NSLog("Error: The data could not be decoded.")
+                case .encodingError:
+                    NSLog("Error: The data could not be encoded.")
+                default:
+                    NSLog("ERROR: This error should not be reached")
+                }
+            }
+            
             DispatchQueue.main.async {
                 self.refreshControl?.endRefreshing()
             }
@@ -71,10 +95,8 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
                         NSLog("Error: The data could not be decoded.")
                     case .encodingError:
                         NSLog("Error: The data could not be encoded.")
-                    case .invalidCredentials:
-                        break
-                    case .existingAccount:
-                        NSLog("ERROR: This error is only used when creating an account")
+                    default:
+                        NSLog("ERROR: This error should not be reached")
                     }
                 }
             }
@@ -123,7 +145,7 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        guard let cell = tableView.dequeueReusableCell(withIdentifier: "truckCell", for: indexPath) as? TruckTableViewCell else { return UITableViewCell() }
+//                guard let cell = tableView.dequeueReusableCell(withIdentifier: "truckCell", for: indexPath) as? TruckTableViewCell else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "truckCell", for: indexPath)
         
         let truck = trucks[indexPath.row]

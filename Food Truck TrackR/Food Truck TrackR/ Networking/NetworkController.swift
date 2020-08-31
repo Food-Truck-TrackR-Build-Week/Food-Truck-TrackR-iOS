@@ -52,7 +52,7 @@ class NetworkingController {
     var dinerRep: DinerRepresentaion? {
         didSet {
             diner = dinerRep!.diner
-            token = dinerRep!.token
+            token = "Bearer " + dinerRep!.token
             loggedInUserType = .diner
             self.getDinerFavoriteTrucks(for: diner!.dinerId) { (result) in
                 do {
@@ -67,7 +67,7 @@ class NetworkingController {
     var operatorRep: OperatorRepresentation? {
         didSet {
             `operator` = operatorRep?.operator
-             token = operatorRep!.token
+             token = "Bearer " + operatorRep!.token
             loggedInUserType = .operator
              getOperatorTrucks(for: `operator`!.operatorId) { (result) in
                 do {
@@ -617,6 +617,15 @@ class NetworkingController {
             }
             
             do {
+                let errorMessage = try self.jsonDecoder.decode(LoginError.self, from: data)
+                print(errorMessage)
+                completion(.failure(.existingAccount))
+                return
+            } catch {
+                print("Login credentials were valid")
+            }
+            
+            do {
                 let newDiner = try self.jsonDecoder.decode(Diner.self, from: data)
                 completion(.success(newDiner))
             } catch {
@@ -660,6 +669,15 @@ class NetworkingController {
             guard let data = data else {
                 completion(.failure(.noData))
                 return
+            }
+            
+            do {
+                let possibleInvalidCredentialsError = try self.jsonDecoder.decode(LoginError.self, from: data)
+                print(possibleInvalidCredentialsError)
+                completion(.failure(.existingAccount))
+                return
+            } catch {
+                print("Login credentials were valid")
             }
                
             do {

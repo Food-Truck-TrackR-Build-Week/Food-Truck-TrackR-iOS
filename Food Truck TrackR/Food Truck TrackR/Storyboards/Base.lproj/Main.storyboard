@@ -16,16 +16,6 @@
             </objects>
             <point key="canvasLocation" x="1062" y="560"/>
         </scene>
-        <!--ProfileVC-->
-        <scene sceneID="UP4-P5-O1R">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="profileVC" storyboardName="ProfileVC" id="ur8-nN-TnP" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="08E-Q6-uA7"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Xj-68-VuU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1591" y="-269"/>
-        </scene>
         <!--Map Table View Controller-->
         <scene sceneID="ZTv-Ru-eoY">
             <objects>
@@ -73,13 +63,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="SqA-ua-mnb">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.crop.circle" catalog="system" id="f5u-D3-up2">
-                            <connections>
-                                <segue destination="ur8-nN-TnP" kind="show" identifier="ShowProfile" id="I1P-v2-4u1"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="car" catalog="system" id="f5u-D3-up2"/>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="VRz-0m-ohS">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
                             <action selector="refresh:" destination="jsl-A3-KUH" eventType="valueChanged" id="SjT-aF-JD5"/>
@@ -124,6 +111,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
+        <image name="car" catalog="system" width="128" height="93"/>
     </resources>
 </document>
