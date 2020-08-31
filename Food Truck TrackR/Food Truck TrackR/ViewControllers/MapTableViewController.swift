@@ -96,10 +96,13 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .reloadMapTableView, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .reloadMapTableView, object: networkController)
     }
     
     @objc func reloadTableView() {
+        
+        
+        
         tableView.reloadData()
     }
     

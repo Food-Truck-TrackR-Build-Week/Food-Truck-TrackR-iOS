@@ -76,6 +76,8 @@ class LogInViewController: UIViewController {
         if username == "secret" && password == "login" {
             print("Sshhhh come in but keep quiet, This is the secret login")
             dismiss(animated: true, completion: nil)
+            NotificationCenter.default.post(name: .reloadMapTableView, object: networkController)
+            return
         }
         
         switch userType {
@@ -161,7 +163,7 @@ class LogInViewController: UIViewController {
             print("If you're seeing this, it means that something went wrong in the ChooseUserTypeViewController, and that the userType was not identified or passed")
         }
         print("sign in successful")
-        NotificationCenter.default.post(name: .reloadMapTableView, object: self)
+        NotificationCenter.default.post(name: .reloadMapTableView, object: networkController)
     }
     
     //Navigation
