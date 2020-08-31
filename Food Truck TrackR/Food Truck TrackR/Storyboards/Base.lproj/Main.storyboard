@@ -248,7 +248,11 @@
                         <viewLayoutGuide key="safeArea" id="5b1-5E-r8j"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create a Truck" id="X88-7b-Jg8">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="82J-92-unX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="82J-92-unX">
+                            <connections>
+                                <action selector="saveButton:" destination="Kt0-5N-HBK" id="2j3-3g-9lA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addCuisine" destination="e70-PE-hIl" id="IbG-pY-AyY"/>
@@ -274,7 +278,7 @@
         <scene sceneID="RRC-b6-FJe">
             <objects>
                 <tableViewController id="h5I-Ob-cGp" customClass="ProfileTableViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LFs-c3-unz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ProfileOperator" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LFs-c3-unz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

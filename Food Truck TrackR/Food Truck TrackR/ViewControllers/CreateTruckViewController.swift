@@ -14,17 +14,27 @@ class CreateTruckViewController: UIViewController {
     @IBOutlet weak var addCuisine: UITextField!
     @IBOutlet weak var setTruckImage: UIImageView!
     
+    @IBAction func saveButton(_ sender: Any) {
+        
+         if truckName.text?.isEmpty ?? true {
+               print("Empty")
+           } else {
+                print("Created new Truck")
+                let alert = UIAlertController(title: title, message: "You created a new truck", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+                present(alert, animated: true)
+               
+          //  saveButton()
+            performSegue(withIdentifier: "ProfileOperator", sender: self)
+           }
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
-
-    func saveButton() {
-        
     }
     
 //    let moc = CoreDataStack.shared.mainContext
