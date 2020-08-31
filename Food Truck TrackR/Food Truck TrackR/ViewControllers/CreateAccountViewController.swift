@@ -17,7 +17,7 @@ class CreateAccountViewController: UIViewController {
             print("user type has been set to: \(userType!.rawValue)")
         }
     }
-    let networkController = NetworkingController()
+    let networkController = NetworkingController.shared
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!

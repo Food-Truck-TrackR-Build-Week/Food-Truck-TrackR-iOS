@@ -14,7 +14,7 @@ class TruckRatingViewController: UIViewController {
     @IBOutlet weak var truckNameLabel: UILabel!
     @IBOutlet weak var truckImage: UIImageView!
     
-    var networkController: NetworkingController?
+    var networkController = NetworkingController.shared
     
     var truck: TruckRepresentation? {
         didSet {
