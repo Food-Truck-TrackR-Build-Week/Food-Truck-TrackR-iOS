@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4459683B24EF684200AA9C9B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4459683A24EF684200AA9C9B /* CoreDataStack.swift */; };
+		446EA16A24FC8ED1005B073B /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446EA16924FC8ED1005B073B /* ProfileTableViewController.swift */; };
+		446EA16C24FC9A7F005B073B /* CreateTruckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446EA16B24FC9A7F005B073B /* CreateTruckViewController.swift */; };
 		44C9EEBE24F3519B008094AE /* Truck+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C9EEBD24F3519B008094AE /* Truck+Convenience.swift */; };
 		44C9EEC224F3D0D0008094AE /* Menu+Conveniece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C9EEC124F3D0D0008094AE /* Menu+Conveniece.swift */; };
 		44C9EEC424F3D15B008094AE /* MenuRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C9EEC324F3D15B008094AE /* MenuRepresentation.swift */; };
@@ -26,7 +28,6 @@
 		68852DEF24EF5F16004DAC26 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852DEE24EF5F16004DAC26 /* Operator.swift */; };
 		68852DF424EF69D3004DAC26 /* MapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852DF324EF69D3004DAC26 /* MapTableViewController.swift */; };
 		68852DFA24EF6F09004DAC26 /* TruckRatingVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */; };
-		68852E2824F86DE0004DAC26 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852E2724F86DE0004DAC26 /* ProfileTableViewController.swift */; };
 		68852E2C24F89B22004DAC26 /* TruckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852E2B24F89B22004DAC26 /* TruckTableViewCell.swift */; };
 		7B729F3024FADB0E007647C4 /* TextWithTruck.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B729F2F24FADB0E007647C4 /* TextWithTruck.png */; };
 		7B729F3224FADCE4007647C4 /* launcImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B729F3124FADCE4007647C4 /* launcImage.png */; };
@@ -45,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		4459683A24EF684200AA9C9B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		446EA16924FC8ED1005B073B /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		446EA16B24FC9A7F005B073B /* CreateTruckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTruckViewController.swift; sourceTree = "<group>"; };
 		44C9EEBD24F3519B008094AE /* Truck+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Truck+Convenience.swift"; sourceTree = "<group>"; };
 		44C9EEC124F3D0D0008094AE /* Menu+Conveniece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu+Conveniece.swift"; sourceTree = "<group>"; };
 		44C9EEC324F3D15B008094AE /* MenuRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRepresentation.swift; sourceTree = "<group>"; };
@@ -64,7 +67,6 @@
 		68852DEE24EF5F16004DAC26 /* Operator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 		68852DF324EF69D3004DAC26 /* MapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewController.swift; sourceTree = "<group>"; };
 		68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TruckRatingVC.storyboard; sourceTree = "<group>"; };
-		68852E2724F86DE0004DAC26 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		68852E2B24F89B22004DAC26 /* TruckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckTableViewCell.swift; sourceTree = "<group>"; };
 		7B729F2F24FADB0E007647C4 /* TextWithTruck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextWithTruck.png; sourceTree = "<group>"; };
 		7B729F3124FADCE4007647C4 /* launcImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launcImage.png; sourceTree = "<group>"; };
@@ -177,8 +179,9 @@
 				4CF5B95124F77A540037D8F6 /* TruckRatingViewController.swift */,
 				AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */,
 				68852DF324EF69D3004DAC26 /* MapTableViewController.swift */,
-				68852E2724F86DE0004DAC26 /* ProfileTableViewController.swift */,
 				68852E2B24F89B22004DAC26 /* TruckTableViewCell.swift */,
+				446EA16B24FC9A7F005B073B /* CreateTruckViewController.swift */,
+				446EA16924FC8ED1005B073B /* ProfileTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				68852DED24EF5D98004DAC26 /* Diner.swift in Sources */,
 				AF23C7EB24EE10EB0081B805 /* TruckDetailViewController.swift in Sources */,
 				44C9EEBE24F3519B008094AE /* Truck+Convenience.swift in Sources */,
+				446EA16A24FC8ED1005B073B /* ProfileTableViewController.swift in Sources */,
 				4C6030F324F787EB0069D008 /* CreateAccountViewController.swift in Sources */,
 				AF23C7CB24EE059E0081B805 /* AppDelegate.swift in Sources */,
 				4C6030EF24F786160069D008 /* TruckRepresentation.swift in Sources */,
@@ -316,7 +320,7 @@
 				4CF5B95324F77A540037D8F6 /* TruckRatingViewController.swift in Sources */,
 				44C9EEC424F3D15B008094AE /* MenuRepresentation.swift in Sources */,
 				68852DEF24EF5F16004DAC26 /* Operator.swift in Sources */,
-				68852E2824F86DE0004DAC26 /* ProfileTableViewController.swift in Sources */,
+				446EA16C24FC9A7F005B073B /* CreateTruckViewController.swift in Sources */,
 				68852DF424EF69D3004DAC26 /* MapTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

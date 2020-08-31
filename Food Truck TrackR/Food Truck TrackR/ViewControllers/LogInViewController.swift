@@ -27,15 +27,15 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboard()
+    //    setupKeyboard()
     }
     
-    func setupKeyboard() {
-        
-        emailTextField.addDoneButtonOnKeyboard()
-        passwordTextField.addDoneButtonOnKeyboard()
-        
-    }
+//    func setupKeyboard() {
+//
+//        emailTextField.addDoneButtonOnKeyboard()
+//        passwordTextField.addDoneButtonOnKeyboard()
+//
+//    }
     
     func presentBlankTextFieldsErrorAlert() {
         let alert = UIAlertController(title: "Please enter your login credentials", message: "Please make sure you enter your email and password", preferredStyle: .alert)
