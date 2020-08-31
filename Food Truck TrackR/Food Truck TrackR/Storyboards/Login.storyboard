@@ -122,6 +122,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nQk-YA-Yw8">
                                                                 <rect key="frame" x="0.0" y="28.5" width="350" height="40"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="EmailTextField"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="350" id="fir-AQ-OmO"/>
                                                                     <constraint firstAttribute="height" constant="40" id="gLy-uf-MCf"/>
@@ -142,6 +143,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9iX-Pm-f11">
                                                                 <rect key="frame" x="0.0" y="28.5" width="350" height="40"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="PasswordTextField"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="2Xx-FJ-BfT"/>
                                                                     <constraint firstAttribute="width" constant="350" id="4Og-7b-8PM"/>
@@ -162,6 +164,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VjO-A9-DML">
                                                                 <rect key="frame" x="0.0" y="28.5" width="350" height="40"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="PasswordConfirmationTextField"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="350" id="Akg-VJ-S4l"/>
                                                                     <constraint firstAttribute="height" constant="40" id="mqf-d7-yrF"/>
@@ -535,6 +538,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="47b-FY-QEk">
                                                                 <rect key="frame" x="0.0" y="28.5" width="350" height="40"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="EmailTextField"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="dBp-5K-ARG"/>
                                                                     <constraint firstAttribute="width" constant="350" id="nbZ-N8-KIZ"/>
@@ -555,6 +559,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="2TF-a5-ODO">
                                                                 <rect key="frame" x="0.0" y="28.5" width="350" height="40"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="PasswordTextField"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="350" id="AvP-oI-B5K"/>
                                                                     <constraint firstAttribute="height" constant="40" id="xHK-ba-f7m"/>
@@ -575,6 +580,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ziu-pa-xqs">
                                                                 <rect key="frame" x="0.0" y="28.5" width="350" height="40"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="PasswordConfirmationTextField"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="350" id="Vt4-Ec-wlj"/>
                                                                     <constraint firstAttribute="height" constant="40" id="dvQ-JE-2vm"/>

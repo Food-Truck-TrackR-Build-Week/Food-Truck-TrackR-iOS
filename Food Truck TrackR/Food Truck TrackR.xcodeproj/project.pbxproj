@@ -29,6 +29,7 @@
 		68852DF424EF69D3004DAC26 /* MapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852DF324EF69D3004DAC26 /* MapTableViewController.swift */; };
 		68852DFA24EF6F09004DAC26 /* TruckRatingVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */; };
 		68852E2C24F89B22004DAC26 /* TruckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68852E2B24F89B22004DAC26 /* TruckTableViewCell.swift */; };
+		68C3819524FD956C000C8840 /* Food_Truck_TrackRUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C3819424FD956C000C8840 /* Food_Truck_TrackRUITests.swift */; };
 		7B4D190824FC90E20063C81D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4D190724FC90E20063C81D /* Notification.swift */; };
 		7B4D190A24FCAE530063C81D /* appLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B4D190924FCAE530063C81D /* appLogo.png */; };
 		7B729F3224FADCE4007647C4 /* launcImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B729F3124FADCE4007647C4 /* launcImage.png */; };
@@ -44,6 +45,16 @@
 		AF23C7E724EE10B60081B805 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7E624EE10B60081B805 /* LogInViewController.swift */; };
 		AF23C7EB24EE10EB0081B805 /* TruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		68C3819724FD956C000C8840 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF23C7BF24EE059E0081B805 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF23C7C624EE059E0081B805;
+			remoteInfo = "Food Truck TrackR";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4459683A24EF684200AA9C9B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -69,6 +80,9 @@
 		68852DF324EF69D3004DAC26 /* MapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewController.swift; sourceTree = "<group>"; };
 		68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TruckRatingVC.storyboard; sourceTree = "<group>"; };
 		68852E2B24F89B22004DAC26 /* TruckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckTableViewCell.swift; sourceTree = "<group>"; };
+		68C3819224FD956C000C8840 /* Food Truck TrackRUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Food Truck TrackRUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68C3819424FD956C000C8840 /* Food_Truck_TrackRUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food_Truck_TrackRUITests.swift; sourceTree = "<group>"; };
+		68C3819624FD956C000C8840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B4D190724FC90E20063C81D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		7B4D190924FCAE530063C81D /* appLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appLogo.png; sourceTree = "<group>"; };
 		7B729F3124FADCE4007647C4 /* launcImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launcImage.png; sourceTree = "<group>"; };
@@ -88,6 +102,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		68C3818F24FD956C000C8840 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF23C7C424EE059E0081B805 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,6 +140,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		68C3819324FD956C000C8840 /* Food Truck TrackRUITests */ = {
+			isa = PBXGroup;
+			children = (
+				68C3819424FD956C000C8840 /* Food_Truck_TrackRUITests.swift */,
+				68C3819624FD956C000C8840 /* Info.plist */,
+			);
+			path = "Food Truck TrackRUITests";
+			sourceTree = "<group>";
+		};
 		A4FC305D24F5F14D00E1646C /*  Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				AF23C7C924EE059E0081B805 /* Food Truck TrackR */,
+				68C3819324FD956C000C8840 /* Food Truck TrackRUITests */,
 				AF23C7C824EE059E0081B805 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -140,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				AF23C7C724EE059E0081B805 /* Food Truck TrackR.app */,
+				68C3819224FD956C000C8840 /* Food Truck TrackRUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,6 +257,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		68C3819124FD956C000C8840 /* Food Truck TrackRUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68C3819B24FD956C000C8840 /* Build configuration list for PBXNativeTarget "Food Truck TrackRUITests" */;
+			buildPhases = (
+				68C3818E24FD956C000C8840 /* Sources */,
+				68C3818F24FD956C000C8840 /* Frameworks */,
+				68C3819024FD956C000C8840 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68C3819824FD956C000C8840 /* PBXTargetDependency */,
+			);
+			name = "Food Truck TrackRUITests";
+			productName = "Food Truck TrackRUITests";
+			productReference = 68C3819224FD956C000C8840 /* Food Truck TrackRUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		AF23C7C624EE059E0081B805 /* Food Truck TrackR */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF23C7DE24EE05A00081B805 /* Build configuration list for PBXNativeTarget "Food Truck TrackR" */;
@@ -252,6 +302,10 @@
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Juan M Mariscal";
 				TargetAttributes = {
+					68C3819124FD956C000C8840 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = AF23C7C624EE059E0081B805;
+					};
 					AF23C7C624EE059E0081B805 = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -271,11 +325,19 @@
 			projectRoot = "";
 			targets = (
 				AF23C7C624EE059E0081B805 /* Food Truck TrackR */,
+				68C3819124FD956C000C8840 /* Food Truck TrackRUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		68C3819024FD956C000C8840 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF23C7C524EE059E0081B805 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,6 +356,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		68C3818E24FD956C000C8840 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68C3819524FD956C000C8840 /* Food_Truck_TrackRUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF23C7C324EE059E0081B805 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,6 +401,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		68C3819824FD956C000C8840 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF23C7C624EE059E0081B805 /* Food Truck TrackR */;
+			targetProxy = 68C3819724FD956C000C8840 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		AF23C7D024EE059E0081B805 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -351,6 +429,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		68C3819924FD956C000C8840 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4L85A4MKYA;
+				INFOPLIST_FILE = "Food Truck TrackRUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.libbythomas.Food-Truck-TrackRUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Food Truck TrackR";
+			};
+			name = Debug;
+		};
+		68C3819A24FD956C000C8840 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4L85A4MKYA;
+				INFOPLIST_FILE = "Food Truck TrackRUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.libbythomas.Food-Truck-TrackRUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Food Truck TrackR";
+			};
+			name = Release;
+		};
 		AF23C7DC24EE05A00081B805 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -504,6 +620,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		68C3819B24FD956C000C8840 /* Build configuration list for PBXNativeTarget "Food Truck TrackRUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68C3819924FD956C000C8840 /* Debug */,
+				68C3819A24FD956C000C8840 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AF23C7C224EE059E0081B805 /* Build configuration list for PBXProject "Food Truck TrackR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
