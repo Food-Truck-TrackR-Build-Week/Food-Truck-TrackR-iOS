@@ -53,10 +53,19 @@ class TruckRatingViewController: UIViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let truck = truck else { return }
         guard let diner = diner else { return }
+        let truckId = truck.identifier
+        let dinerId = diner.dinerId
         
-//        networkController?.addCustomerRating(for: truckId, with: dinerId, customerRating: 2, completion: { (result, error) in
-//
-//        })
+        let starValue: CustomControl
+        
+        networkController.addCustomerRating(for: truckId, with: dinerId, customerRating: Double(starValue.value), completion: { (result) in
+            
+            do {
+                let rating = try 
+            } catch {
+                
+            }
+        })
     }
     
     
