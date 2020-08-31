@@ -160,6 +160,8 @@ class LogInViewController: UIViewController {
         case .none:
             print("If you're seeing this, it means that something went wrong in the ChooseUserTypeViewController, and that the userType was not identified or passed")
         }
+        print("sign in successful")
+        NotificationCenter.default.post(name: .reloadMapTableView, object: self)
     }
     
     //Navigation

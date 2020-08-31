@@ -210,6 +210,7 @@ class CreateAccountViewController: UIViewController {
         case .none:
             print("ERROR: If you're seeing this, it means that something went wrong in the loginViewController, and it means that the user type was not identified or passed")
         }
+        NotificationCenter.default.post(name: .reloadMapTableView, object: self)
     }
     
 } //End of class

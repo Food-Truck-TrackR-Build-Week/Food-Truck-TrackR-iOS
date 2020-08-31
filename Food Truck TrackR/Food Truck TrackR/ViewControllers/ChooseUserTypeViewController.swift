@@ -37,4 +37,8 @@ extension ChooseUserTypeViewController: UIAdaptivePresentationControllerDelegate
         present(alert, animated: true)
     }
     
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("some random stuff")
+    }
+    
 }
