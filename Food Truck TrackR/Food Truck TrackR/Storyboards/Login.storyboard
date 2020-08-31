@@ -507,7 +507,7 @@
             </objects>
             <point key="canvasLocation" x="2598.5507246376815" y="437.94642857142856"/>
         </scene>
-        <!--New Truck Owner 🚚-->
+        <!--New Customer 🌯-->
         <scene sceneID="jxa-Hs-DMf">
             <objects>
                 <viewController id="6xy-I5-a1Y" customClass="CreateAccountViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
@@ -633,7 +633,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JHN-Cz-k4M"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Truck Owner 🚚" id="Xry-rU-5RO"/>
+                    <navigationItem key="navigationItem" title="New Customer 🌯" id="Xry-rU-5RO"/>
                     <size key="freeformSize" width="414" height="1122"/>
                     <connections>
                         <outlet property="createAccountButton" destination="rgY-Lw-MU6" id="Nyi-bc-uIp"/>
