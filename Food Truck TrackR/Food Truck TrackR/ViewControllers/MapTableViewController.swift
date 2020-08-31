@@ -96,7 +96,6 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .reloadMapTableView, object: networkController)
     }
     
     @objc func reloadTableView() {
@@ -265,6 +264,7 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
             let navVC = segue.destination as! UINavigationController
             let modalVC = navVC.topViewController as! ChooseUserTypeViewController
             navVC.presentationController?.delegate = modalVC
+            navVC.delegate = self
             modalVC.isModalInPresentation = true
             
         }
@@ -287,4 +287,12 @@ extension MapTableViewController: CLLocationManagerDelegate {
     }
 }
 
+extension MapTableViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("")
+    }
+}
 
+extension MapTableViewController: UINavigationControllerDelegate {
+    
+}
