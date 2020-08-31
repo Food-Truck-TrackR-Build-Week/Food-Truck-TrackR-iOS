@@ -68,9 +68,9 @@ class NetworkingController {
     var operatorRep: OperatorRepresentation? {
         didSet {
             `operator` = operatorRep?.operator
-             token = "Bearer " + operatorRep!.token
+            token = "Bearer " + operatorRep!.token
             loggedInUserType = .operator
-             getOperatorTrucks(for: `operator`!.operatorId) { (result) in
+            getOperatorTrucks(for: `operator`!.operatorId) { (result) in
                 do {
                     self.trucks = try result.get()
                     print("NOTIFICATION: Owned trucks acquired")
@@ -469,7 +469,7 @@ class NetworkingController {
                     completion(.failure(.badAuth))
                 }
             }
-
+            
             guard let data = data else {
                 completion(.failure(.noData))
                 return
@@ -646,27 +646,27 @@ class NetworkingController {
     func createOperator(with username: String, password: String, email: String, completion: @escaping (Result<Operator, NetworkingError>) -> Void) {
         let reqEndpoint = "/api/auth/register/operator"
         let url = baseUrl.appendingPathComponent(reqEndpoint)
-           
+        
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue(token, forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-           
+        
         let jsonObject = CreateOperatorBody(username: username, password: password, email: email)
-           
+        
         do {
             let jsonBody = try jsonEncoder.encode(jsonObject)
             request.httpBody = jsonBody
         } catch {
             completion(.failure(.encodingError))
         }
-           
+        
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if error != nil {
                 completion(.failure(.badAuth))
                 return
             }
-               
+            
             guard let data = data else {
                 completion(.failure(.noData))
                 return
@@ -680,7 +680,7 @@ class NetworkingController {
             } catch {
                 print("Login credentials were valid")
             }
-               
+            
             do {
                 let newOperator = try self.jsonDecoder.decode(Operator.self, from: data)
                 completion(.success(newOperator))
@@ -700,27 +700,27 @@ class NetworkingController {
     func loginDiner(with username: String, password: String, completion: @escaping (Result<DinerRepresentaion, NetworkingError>) -> Void) {
         let reqEndpoint = "/api/auth/login"
         let url = baseUrl.appendingPathComponent(reqEndpoint)
-           
+        
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue(token, forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-           
+        
         let jsonObject = LoginJSONObject(username: username, password: password)
-           
+        
         do {
             let jsonBody = try jsonEncoder.encode(jsonObject)
             request.httpBody = jsonBody
         } catch {
             completion(.failure(.encodingError))
         }
-           
+        
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if error != nil {
                 completion(.failure(.badAuth))
                 return
             }
-               
+            
             guard let data = data else {
                 completion(.failure(.noData))
                 return
@@ -735,7 +735,7 @@ class NetworkingController {
             } catch {
                 print("Login credentials were valid")
             }
-               
+            
             do {
                 let diner = try self.jsonDecoder.decode(DinerRepresentaion.self, from: data)
                 completion(.success(diner))
@@ -745,32 +745,32 @@ class NetworkingController {
             }
         }.resume()
     }
-   
+    
     //logs in as operator
     func loginOperator(with username: String, password: String, completion: @escaping (Result<OperatorRepresentation, NetworkingError>) -> Void) {
         let reqEndpoint = "/api/auth/login"
         let url = baseUrl.appendingPathComponent(reqEndpoint)
-           
+        
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.post.rawValue
         request.setValue(token, forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-           
+        
         let jsonObject = LoginJSONObject(username: username, password: password)
-           
+        
         do {
             let jsonBody = try jsonEncoder.encode(jsonObject)
             request.httpBody = jsonBody
         } catch {
             completion(.failure(.encodingError))
         }
-           
+        
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             if error != nil {
                 completion(.failure(.badAuth))
                 return
             }
-               
+            
             guard let data = data else {
                 completion(.failure(.noData))
                 return
@@ -785,7 +785,7 @@ class NetworkingController {
             } catch {
                 print("Login credentials were valid")
             }
-               
+            
             do {
                 let op = try self.jsonDecoder.decode(OperatorRepresentation.self, from: data)
                 completion(.success(op))
@@ -844,7 +844,7 @@ class NetworkingController {
             }
         }.resume()
     }
-
+    
     struct CreateMenuItem: Codable {
         let itemName: String
         let itemDescription: String
@@ -1030,7 +1030,7 @@ class NetworkingController {
                 completion(error)
                 return
             }
-                       
+            
             if let response = response as? HTTPURLResponse {
                 switch response.statusCode {
                 case 200:

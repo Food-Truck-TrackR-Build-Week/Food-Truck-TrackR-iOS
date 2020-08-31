@@ -39,10 +39,10 @@ class LogInViewController: UIViewController {
     }
     
     func setupKeyboard() {
-        
+
         emailTextField.addDoneButtonOnKeyboard()
         passwordTextField.addDoneButtonOnKeyboard()
-        
+
     }
     
     func presentBlankTextFieldsErrorAlert() {

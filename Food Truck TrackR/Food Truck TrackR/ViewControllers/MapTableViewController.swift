@@ -26,6 +26,9 @@ class customPin: NSObject, MKAnnotation {
 class MapTableViewController: UITableViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    
+    //Properties
+    
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     
@@ -92,12 +95,7 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
         let foodTruckPin2 = customPin(titlePin: "You Need Cheesus", subtitlePin: "A religous experience.", coordinatePin: foodTruckLocation2)
         self.mapView.addAnnotation(foodTruckPin2)
         self.mapView.delegate = self
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
     }
     
     @objc func reloadTableView() {
@@ -157,9 +155,9 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
         
         let truck = trucks[indexPath.row]
         
-        let titleText = "\(truck.name) \n\(truck.cuisineType)"
+        let titleText = "Name- \(truck.name) Type- \(truck.cuisineType)"
         cell.textLabel?.text = titleText
-        cell.detailTextLabel?.text = "\(truck.customerRatingAVG ?? 0)"
+        cell.detailTextLabel?.text = "Rated: \(truck.customerRatingAVG ?? 0)"
         
         //        cell.truck = trucks[indexPath.row]
         
@@ -252,7 +250,7 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowProfile" {
+        if segue.identifier == "ShowTruckProfile" {
             
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let detailVC = segue.destination as! TruckDetailViewController

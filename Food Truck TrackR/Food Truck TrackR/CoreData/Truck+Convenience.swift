@@ -67,7 +67,7 @@ extension Truck {
 
     @discardableResult convenience init?(truckRepresentation: TruckRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
 
-        guard let imageOfTruck = truckRepresentation.imageOfTruck else {return nil}
+      //  guard let imageOfTruck = truckRepresentation.imageOfTruck else {return nil}
 
         var menuItems: [Menu] = []
 
@@ -90,7 +90,7 @@ extension Truck {
         self.init(identifier: Int64(truckRepresentation.identifier),
                   operatorID: Int64(truckRepresentation.operatorID),
                   name: truckRepresentation.name,
-                  imageOfTruck: imageOfTruck,
+                  imageOfTruck: truckRepresentation.imageOfTruck,
                   location: truckRepresentation.location,
                   cuisineType: truckRepresentation.cuisineType,
                   menu: menuSet,
