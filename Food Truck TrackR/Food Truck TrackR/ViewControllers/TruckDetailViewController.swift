@@ -17,6 +17,7 @@ class TruckDetailViewController: UIViewController {
     @IBOutlet var currentLocationLabel: UILabel!
     @IBOutlet var cuisineTypeLabel: UILabel!
     @IBOutlet var departureTimeLabel: UILabel!
+    @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet var favoriteButton: UIBarButtonItem!
 
     // MARK: - Properites
@@ -46,6 +47,8 @@ class TruckDetailViewController: UIViewController {
       let dateFormatter = DateFormatter()
       dateFormatter.dateFormat = "MMM d, h:mm a"
       departureTimeLabel.text = dateFormatter.string(from: Date(milliseconds: Int64(truck.departureTime)))
+        reviewButton.layer.borderWidth = 2
+        reviewButton.layer.borderColor = UIColor.orange.cgColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -22,12 +22,19 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var createAccountButton: UIButton!
+    
     
     //MARK: - IBActions and Methods -
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboard()
+        signInButton.layer.cornerRadius = 15
+        createAccountButton.layer.cornerRadius = 15
+        createAccountButton.layer.borderColor = UIColor.orange.cgColor
+        createAccountButton.layer.borderWidth = 3
     }
     
     func setupKeyboard() {

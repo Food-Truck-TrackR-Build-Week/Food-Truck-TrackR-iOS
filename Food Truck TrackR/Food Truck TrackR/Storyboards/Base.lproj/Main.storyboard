@@ -74,7 +74,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="mapView" destination="FP5-Nq-xYg" id="Jy5-7w-IU8"/>
-                        <segue destination="yEo-hL-nB6" kind="show" identifier="LoginStoryboardSegue" id="kwC-lI-V6K"/>
+                        <segue destination="yEo-hL-nB6" kind="modal" identifier="LoginStoryboardSegue" modalPresentationStyle="fullScreen" id="kwC-lI-V6K"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oim-TT-Tkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -96,9 +96,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EeD-Ck-omF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xeR-XN-0z1">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="xeR-XN-0z1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
