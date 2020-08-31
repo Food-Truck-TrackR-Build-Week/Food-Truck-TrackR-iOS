@@ -99,9 +99,6 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
     }
     
     @objc func reloadTableView() {
-        
-        
-        
         tableView.reloadData()
     }
     
