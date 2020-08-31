@@ -12,7 +12,6 @@ class CreateTruckViewController: UIViewController {
 
     @IBOutlet weak var truckName: UITextField!
     @IBOutlet weak var addCuisine: UITextField!
-    @IBOutlet weak var truckDescription: UITextView!
     @IBOutlet weak var setTruckImage: UIImageView!
     
     
@@ -24,14 +23,15 @@ class CreateTruckViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func saveButton() {
+        
     }
-    */
-
+    
+//    let moc = CoreDataStack.shared.mainContext
+//    do {
+//        try moc.save()
+//    } catch {
+//        print("Error saving \(error)")
+//    }
+    
 }

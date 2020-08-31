@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CreateAccountViewController: UIViewController {
     
@@ -202,6 +203,7 @@ class CreateAccountViewController: UIViewController {
                             }
                     }
                 }
+                
             }
             
         //impossible case, you will never get here!
@@ -209,6 +211,13 @@ class CreateAccountViewController: UIViewController {
             print("ERROR: If you're seeing this, it means that something went wrong in the loginViewController, and it means that the user type was not identified or passed")
         }
         NotificationCenter.default.post(name: .reloadMapTableView, object: networkController)
+        
+        let moc = CoreDataStack.shared.mainContext
+        do {
+            try moc.save()
+        } catch {
+            print("Error saving \(error)")
+        }
     }
     
 } //End of class

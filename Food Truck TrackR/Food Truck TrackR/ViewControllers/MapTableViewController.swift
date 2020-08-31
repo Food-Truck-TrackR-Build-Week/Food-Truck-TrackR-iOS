@@ -41,6 +41,7 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
     }
     let networkController = NetworkingController.shared
     var userIsLoggedIn: Bool = false
+    var user: UserType?
     
     //MARK: - IBActions and Methods -
     
@@ -81,6 +82,19 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
         }
     }
     
+    @IBOutlet weak var profileButton: UIBarButtonItem!
+    
+    @IBAction func profileButtonPressed(_ sender: UIBarButtonItem) {
+        guard let user = user else {return}
+            
+            if user == UserType.diner {
+                performSegue(withIdentifier: "DinerSegue", sender: self)
+                print("diner is user")
+            } else if user == UserType.operator {
+                print("operator is user")
+            }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServices()
@@ -95,7 +109,7 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
         let foodTruckPin2 = customPin(titlePin: "You Need Cheesus", subtitlePin: "A religous experience.", coordinatePin: foodTruckLocation2)
         self.mapView.addAnnotation(foodTruckPin2)
         self.mapView.delegate = self
-    
+        
     }
     
     @objc func reloadTableView() {
@@ -118,23 +132,23 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
                 self.trucks = try result.get()
                 print("All trucks were retrieved")
             } catch {
-                switch error as! NetworkingError {
-                    
-               case .noAuth:
-                    NSLog("Error: No bearer token exists.")
-                case .badAuth:
-                    NSLog("Error: Bearer token invalid.")
-                case .noData:
-                    NSLog("Error: The response had no data.")
-                case .badData:
-                    NSLog("Error: Corrupt data files.")
-                case .decodingError:
-                    NSLog("Error: The data could not be decoded.")
-                case .encodingError:
-                    NSLog("Error: The data could not be encoded.")
-                default:
-                    NSLog("ERROR: This error should not be reached")
-                }
+//                switch error as! NetworkingError {
+//
+//                case .noAuth:
+//                    NSLog("Error: No bearer token exists.")
+//                case .badAuth:
+//                    NSLog("Error: Bearer token invalid.")
+//                case .noData:
+//                    NSLog("Error: The response had no data.")
+//                case .badData:
+//                    NSLog("Error: Corrupt data files.")
+//                case .decodingError:
+//                    NSLog("Error: The data could not be decoded.")
+//                case .encodingError:
+//                    NSLog("Error: The data could not be encoded.")
+//                default:
+//                    NSLog("ERROR: This error should not be reached")
+//                }
             }
             
             DispatchQueue.main.async {
@@ -150,7 +164,7 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//                guard let cell = tableView.dequeueReusableCell(withIdentifier: "truckCell", for: indexPath) as? TruckTableViewCell else { return UITableViewCell() }
+        //                guard let cell = tableView.dequeueReusableCell(withIdentifier: "truckCell", for: indexPath) as? TruckTableViewCell else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "truckCell", for: indexPath)
         
         let truck = trucks[indexPath.row]
