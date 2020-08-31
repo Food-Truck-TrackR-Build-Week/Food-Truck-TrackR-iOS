@@ -24,17 +24,19 @@ class customPin: NSObject, MKAnnotation {
 }
 
 class MapTableViewController: UITableViewController, MKMapViewDelegate {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 10000
     
     var trucks: [TruckRepresentation] = [] {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
-    let networkController = NetworkingController()
+    let networkController = NetworkingController.shared
     var userIsLoggedIn: Bool = false
     
     //MARK: - IBActions and Methods -
@@ -263,7 +265,6 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
             navVC.presentationController?.delegate = modalVC
             navVC.delegate = self
             modalVC.isModalInPresentation = true
-            
         }
     }
     

@@ -25,12 +25,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="FP5-Nq-xYg">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="275"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="truckCell" textLabel="JHN-Q9-di2" detailTextLabel="Xbd-lf-tjv" style="IBUITableViewCellStyleValue1" id="ZC9-jO-1pi" customClass="TruckTableViewCell" customModule="Food_Truck_TrackR" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="442" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="303" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZC9-jO-1pi" id="oqx-XW-adg" customClass="TruckTableViewCell" customModule="Food_Truck_TrackR" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -79,7 +79,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oim-TT-Tkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="987" y="138"/>
+            <point key="canvasLocation" x="986.95652173913049" y="137.94642857142856"/>
         </scene>
         <!--Login-->
         <scene sceneID="wcd-3A-xRI">
