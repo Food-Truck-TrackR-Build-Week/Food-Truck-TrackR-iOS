@@ -24,6 +24,8 @@ class TruckDetailViewController: UIViewController {
     
     // MARK: - Properites
     
+    let networkController = NetworkingController()
+    
     var diner: Diner?
     var truck: TruckRepresentation?
     
@@ -64,7 +66,16 @@ class TruckDetailViewController: UIViewController {
         
         currentLocationLabel.text = truck.location
         
-        truckImageView.image = UIImage(named: truck.imageOfTruck!)
+        guard let image = truck.imageOfTruck else {return}
+        
+        let url = URL(string: "\(truck.imageOfTruck ?? "No Image")")!
+        
+        if let data = try? Data(contentsOf: url) {
+            
+            truckImageView.image = UIImage(data: data)
+        }
+        
+        print(image)
     }
     //fix location and convert into address
     //    currentLocationLabel.text = truck.location
@@ -80,3 +91,7 @@ class TruckDetailViewController: UIViewController {
         } else { return }
     }
 }
+
+//let url = URL(string: image.url)
+//let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+//imageView.image = UIImage(data: data!)

@@ -172,6 +172,14 @@ class LogInViewController: UIViewController {
         }
         print("sign in successful")
         NotificationCenter.default.post(name: .reloadMapTableView, object: networkController)
+        
+        let moc = CoreDataStack.shared.mainContext
+        do {
+            try moc.save()
+        } catch {
+            print("Error saving \(error)")
+        }
+
     }
     
     //Navigation

@@ -12,9 +12,23 @@ class CreateTruckViewController: UIViewController {
 
     @IBOutlet weak var truckName: UITextField!
     @IBOutlet weak var addCuisine: UITextField!
-    @IBOutlet weak var truckDescription: UITextView!
     @IBOutlet weak var setTruckImage: UIImageView!
     
+    @IBAction func saveButton(_ sender: Any) {
+        
+         if truckName.text?.isEmpty ?? true {
+               print("Empty")
+           } else {
+                print("Created new Truck")
+                let alert = UIAlertController(title: title, message: "You created a new truck", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+                present(alert, animated: true)
+               
+          //  saveButton()
+            performSegue(withIdentifier: "ProfileOperator", sender: self)
+           }
+        
+    }
     
     
     override func viewDidLoad() {
@@ -23,15 +37,11 @@ class CreateTruckViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+//    let moc = CoreDataStack.shared.mainContext
+//    do {
+//        try moc.save()
+//    } catch {
+//        print("Error saving \(error)")
+//    }
+    
 }

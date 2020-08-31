@@ -66,8 +66,8 @@
                     <navigationItem key="navigationItem" id="SqA-ua-mnb">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="car" catalog="system" id="f5u-D3-up2">
                             <connections>
-                                <action selector="profileButton:" destination="VEM-gW-q4C" id="SMV-B6-ymT"/>
-                                <segue destination="h5I-Ob-cGp" kind="show" id="GIS-Ph-gjn"/>
+                                <action selector="profileButtonPressed:" destination="jsl-A3-KUH" id="HPj-DI-WZY"/>
+                                <segue destination="h5I-Ob-cGp" kind="show" id="m32-hb-EM8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -80,13 +80,13 @@
                     </refreshControl>
                     <connections>
                         <outlet property="mapView" destination="FP5-Nq-xYg" id="Jy5-7w-IU8"/>
+                        <outlet property="profileButton" destination="f5u-D3-up2" id="Egp-uM-8vl"/>
                         <segue destination="yEo-hL-nB6" kind="show" identifier="LoginStoryboardSegue" id="kwC-lI-V6K"/>
                         <segue destination="Eol-mm-Mvi" kind="show" identifier="DinerSegue" id="e5H-ou-oj4"/>
                         <segue destination="h5I-Ob-cGp" kind="show" identifier="OperatorSegue" id="eRk-k0-SGy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oim-TT-Tkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="VEM-gW-q4C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="986.95652173913049" y="137.94642857142856"/>
         </scene>
@@ -169,6 +169,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add menu items to your Truck:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzF-zD-pXV">
+                                <rect key="frame" x="8" y="251" width="234" height="21"/>
+=======
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fbm-JK-FoU">
                                 <rect key="frame" x="8" y="280" width="366" height="128"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -177,6 +181,7 @@
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add details about your Truck:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzF-zD-pXV">
                                 <rect key="frame" x="8" y="251" width="224" height="21"/>
+>>>>>>> fc99f500daec79bf993c55ff90a15eb5312baff0
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -218,43 +223,53 @@
                                     <constraint firstAttribute="width" constant="85" id="cou-q0-s9p"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VSX-3s-U4G">
+                                <rect key="frame" x="8" y="280" width="366" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="t8y-Ny-kGi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Dki-4Q-jyW" firstAttribute="top" secondItem="tQQ-Yi-Hwe" secondAttribute="bottom" constant="8" id="0oA-x8-cAg"/>
                             <constraint firstItem="lzF-zD-pXV" firstAttribute="top" secondItem="e70-PE-hIl" secondAttribute="bottom" constant="8" id="Aaw-SP-ZrK"/>
-                            <constraint firstItem="fbm-JK-FoU" firstAttribute="leading" secondItem="5b1-5E-r8j" secondAttribute="leading" constant="8" id="Dpj-rd-tme"/>
                             <constraint firstItem="5b1-5E-r8j" firstAttribute="trailing" secondItem="JRB-C8-TC1" secondAttribute="trailing" constant="40" id="H6t-4h-6en"/>
                             <constraint firstItem="e70-PE-hIl" firstAttribute="top" secondItem="VIn-ko-3Jh" secondAttribute="bottom" constant="8" id="HbW-ef-WVD"/>
                             <constraint firstItem="e70-PE-hIl" firstAttribute="top" secondItem="VIn-ko-3Jh" secondAttribute="bottom" constant="8" id="Jlq-Xv-3aU"/>
                             <constraint firstItem="JRB-C8-TC1" firstAttribute="top" secondItem="IEe-2L-fzO" secondAttribute="bottom" constant="8" id="PaE-wj-j8f"/>
                             <constraint firstItem="lzF-zD-pXV" firstAttribute="top" secondItem="e70-PE-hIl" secondAttribute="bottom" constant="8" id="Pha-jM-7Si"/>
+                            <constraint firstItem="VSX-3s-U4G" firstAttribute="top" secondItem="lzF-zD-pXV" secondAttribute="bottom" constant="8" id="SZG-Av-xVn"/>
+                            <constraint firstItem="Dki-4Q-jyW" firstAttribute="top" secondItem="5b1-5E-r8j" secondAttribute="top" constant="357" id="SxL-bq-AYF"/>
                             <constraint firstItem="VIn-ko-3Jh" firstAttribute="top" secondItem="JRB-C8-TC1" secondAttribute="bottom" constant="8" id="TcH-t6-9Dq"/>
                             <constraint firstItem="5b1-5E-r8j" firstAttribute="trailing" secondItem="e70-PE-hIl" secondAttribute="trailing" constant="40" id="TdO-va-6l5"/>
-                            <constraint firstItem="5b1-5E-r8j" firstAttribute="bottom" secondItem="fbm-JK-FoU" secondAttribute="bottom" constant="454" id="YEP-oB-1z8"/>
                             <constraint firstItem="JRB-C8-TC1" firstAttribute="top" secondItem="IEe-2L-fzO" secondAttribute="bottom" constant="8" id="bCM-re-chc"/>
                             <constraint firstItem="IEe-2L-fzO" firstAttribute="leading" secondItem="5b1-5E-r8j" secondAttribute="leading" constant="8" id="cfS-ag-3tN"/>
                             <constraint firstItem="tQQ-Yi-Hwe" firstAttribute="leading" secondItem="5b1-5E-r8j" secondAttribute="leading" constant="8" id="dbJ-Ph-YuM"/>
-                            <constraint firstItem="tQQ-Yi-Hwe" firstAttribute="top" secondItem="fbm-JK-FoU" secondAttribute="bottom" constant="8" id="eUe-7T-ucM"/>
-                            <constraint firstItem="fbm-JK-FoU" firstAttribute="top" secondItem="5b1-5E-r8j" secondAttribute="top" constant="192" id="ft5-3V-aL8"/>
-                            <constraint firstItem="5b1-5E-r8j" firstAttribute="trailing" secondItem="fbm-JK-FoU" secondAttribute="trailing" constant="40" id="idg-MH-E6w"/>
+                            <constraint firstItem="VSX-3s-U4G" firstAttribute="leading" secondItem="5b1-5E-r8j" secondAttribute="leading" constant="8" id="egh-8u-udB"/>
                             <constraint firstItem="e70-PE-hIl" firstAttribute="leading" secondItem="5b1-5E-r8j" secondAttribute="leading" constant="8" id="jfL-t0-V10"/>
                             <constraint firstItem="Dki-4Q-jyW" firstAttribute="leading" secondItem="5b1-5E-r8j" secondAttribute="leading" constant="8" id="lqG-tV-hDc"/>
                             <constraint firstItem="IEe-2L-fzO" firstAttribute="top" secondItem="5b1-5E-r8j" secondAttribute="top" constant="21" id="lyi-1y-ZhN"/>
                             <constraint firstItem="JRB-C8-TC1" firstAttribute="leading" secondItem="5b1-5E-r8j" secondAttribute="leading" constant="8" id="nMj-tD-kin"/>
                             <constraint firstItem="VIn-ko-3Jh" firstAttribute="leading" secondItem="5b1-5E-r8j" secondAttribute="leading" constant="8" id="tYW-0v-bnG"/>
+                            <constraint firstItem="5b1-5E-r8j" firstAttribute="trailing" secondItem="VSX-3s-U4G" secondAttribute="trailing" constant="40" id="uhx-fn-R6G"/>
                             <constraint firstItem="VIn-ko-3Jh" firstAttribute="top" secondItem="JRB-C8-TC1" secondAttribute="bottom" constant="8" id="xJk-ie-67e"/>
                             <constraint firstItem="lzF-zD-pXV" firstAttribute="leading" secondItem="5b1-5E-r8j" secondAttribute="leading" constant="8" id="yh5-tu-SlO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5b1-5E-r8j"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create a Truck" id="X88-7b-Jg8">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="82J-92-unX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="82J-92-unX">
+                            <connections>
+                                <action selector="saveButton:" destination="Kt0-5N-HBK" id="2j3-3g-9lA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addCuisine" destination="e70-PE-hIl" id="IbG-pY-AyY"/>
                         <outlet property="setTruckImage" destination="Dki-4Q-jyW" id="mXL-pZ-Dhv"/>
-                        <outlet property="truckDescription" destination="fbm-JK-FoU" id="Q09-9X-Uvr"/>
                         <outlet property="truckName" destination="JRB-C8-TC1" id="R5M-cF-DeL"/>
                     </connections>
                 </viewController>
@@ -276,7 +291,7 @@
         <scene sceneID="RRC-b6-FJe">
             <objects>
                 <tableViewController id="h5I-Ob-cGp" customClass="ProfileTableViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LFs-c3-unz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ProfileOperator" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LFs-c3-unz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -310,7 +325,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="truckCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SDN-LN-gJb">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TruckCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SDN-LN-gJb">
                                 <rect key="frame" x="0.0" y="153" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SDN-LN-gJb" id="LSD-1l-MwM">
@@ -371,7 +386,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GIS-Ph-gjn"/>
+        <segue reference="eRk-k0-SGy"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="car" catalog="system" width="128" height="93"/>

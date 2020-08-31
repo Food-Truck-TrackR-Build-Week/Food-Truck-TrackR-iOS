@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
     
-    let networkController = NetworkingController()
+  //  let networkController = NetworkingController()
     
     // MARK - Properties
     
@@ -20,9 +20,17 @@ class ProfileTableViewController: UITableViewController {
     //        }
     //    }
     
+    let networkController = NetworkingController.shared
+    
     var diner: Diner?
     var allTrucks: [TruckRepresentation] = []
     var truck: TruckRepresentation?
+    
+    var userType: UserType? {
+           didSet {
+               print("user type has been set to: \(userType!.rawValue)")
+           }
+       }
     
     // Mark - Outlets
     
@@ -30,19 +38,15 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var userProfilePicture: UIImageView!
     @IBOutlet weak var truckNameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
+      //  updateViews()
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -64,11 +68,11 @@ class ProfileTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "truckCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TruckCell", for: indexPath)
         
         let trucks = allTrucks[indexPath.row]
         
-        let truckName = "Name- \(trucks.name) Type- \(trucks.cuisineType)"
+        let truckName = "Name- \(trucks.name)"
         cell.textLabel?.text = truckName
         
         return cell
@@ -77,10 +81,11 @@ class ProfileTableViewController: UITableViewController {
     private func updateViews() {
         
      //   guard let diner = diner, let truck = truck else {return}
+        guard let diner = diner else {return}
         
         //Labels
+       // truckNameLabel.text = truck?.name
         truckNameLabel.text = truck?.name
-      //  userNameLabel.text = "John Doe"
             //diner?.username
       //  nameProfileDescription.text =
         
