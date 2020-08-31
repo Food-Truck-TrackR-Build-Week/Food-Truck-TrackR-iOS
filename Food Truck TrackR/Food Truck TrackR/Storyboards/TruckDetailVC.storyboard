@@ -10,7 +10,7 @@
         <!--TruckRatingVC-->
         <scene sceneID="39Q-vQ-lGb">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="TruckRatingVC" storyboardName="TruckRatingVC" id="PVB-n9-agS" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="TruckRatingVC" storyboardName="TruckRatingVC" referencedIdentifier="TruckRatingVC" id="PVB-n9-agS" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="7HT-Fp-ogi"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Om-lG-eoq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -20,7 +20,7 @@
         <!--Truck Detail View Controller-->
         <scene sceneID="0Xw-fr-1le">
             <objects>
-                <viewController id="hOY-Sy-6Dm" customClass="TruckDetailViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TruckDetailVC" id="hOY-Sy-6Dm" customClass="TruckDetailViewController" customModule="Food_Truck_TrackR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MaM-I8-Egq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,28 +29,33 @@
                                 <rect key="frame" x="20" y="118" width="374" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Food Truck Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbX-En-CNE">
-                                        <rect key="frame" x="0.0" y="0.0" width="241" height="36"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="257.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65X-CE-ew6">
-                                        <rect key="frame" x="291" y="0.0" width="83" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65X-CE-ew6">
+                                        <rect key="frame" x="307.5" y="0.0" width="66.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="UbX-En-CNE" firstAttribute="centerY" secondItem="65X-CE-ew6" secondAttribute="centerY" id="Jx2-2J-HcO"/>
+                                </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bIQ-hu-icZ">
-                                <rect key="frame" x="20" y="184" width="374" height="374"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bIQ-hu-icZ">
+                                <rect key="frame" x="20" y="185.5" width="374" height="371.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bIQ-hu-icZ" secondAttribute="height" multiplier="1:1" id="BG6-B5-4hJ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of food:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73W-ip-o5H">
                                 <rect key="frame" x="20" y="634.5" width="374" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -62,7 +67,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open until:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cY8-ik-niw">
                                 <rect key="frame" x="20" y="725" width="374" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -73,24 +78,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="currentLocation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPA-lf-NIh">
-                                <rect key="frame" x="20" y="578" width="150" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <rect key="frame" x="20" y="578" width="159.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmQ-FC-IBG">
-                                <rect key="frame" x="325" y="572" width="69" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <rect key="frame" x="331" y="573.5" width="63" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Review">
                                     <color key="titleColor" red="0.96078431369999995" green="0.48627450979999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="reivewButtonTapped:" destination="hOY-Sy-6Dm" eventType="touchUpInside" id="MNr-pq-dQc"/>
-                                    <segue destination="PVB-n9-agS" kind="show" id="0BB-vd-8Gg"/>
+                                    <segue destination="PVB-n9-agS" kind="show" identifier="TruckRatingSegue" id="0BB-vd-8Gg"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zHW-lu-Sdy" firstAttribute="top" secondItem="Qbv-He-lqn" secondAttribute="top" constant="30" id="1bE-vH-1Fg"/>
                             <constraint firstItem="Qbv-He-lqn" firstAttribute="trailing" secondItem="73W-ip-o5H" secondAttribute="trailing" constant="20" id="2iV-Jo-Uqg"/>
@@ -131,6 +135,7 @@
                         <outlet property="favoriteButton" destination="KoR-xL-KbU" id="Zk1-HP-qBm"/>
                         <outlet property="foodTruckNameLabel" destination="UbX-En-CNE" id="R96-2G-f5y"/>
                         <outlet property="ratingLabel" destination="65X-CE-ew6" id="D8z-A1-XRY"/>
+                        <outlet property="reviewButton" destination="lmQ-FC-IBG" id="lSd-SH-oZw"/>
                         <outlet property="truckImageView" destination="bIQ-hu-icZ" id="N3f-54-hka"/>
                     </connections>
                 </viewController>
@@ -143,9 +148,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P4b-Yo-RHe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uIg-hA-jEs">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="uIg-hA-jEs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -158,6 +165,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="car.fill" catalog="system" width="128" height="93"/>
         <image name="heart" catalog="system" width="128" height="109"/>
     </resources>
 </document>
