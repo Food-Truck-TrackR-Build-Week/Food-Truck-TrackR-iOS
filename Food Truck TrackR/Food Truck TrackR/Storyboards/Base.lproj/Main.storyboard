@@ -26,12 +26,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="FP5-Nq-xYg">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="275"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="truckCell" textLabel="JHN-Q9-di2" detailTextLabel="Xbd-lf-tjv" style="IBUITableViewCellStyleValue1" id="ZC9-jO-1pi" customClass="TruckTableViewCell" customModule="Food_Truck_TrackR" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="442" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="303" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZC9-jO-1pi" id="oqx-XW-adg" customClass="TruckTableViewCell" customModule="Food_Truck_TrackR" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -80,7 +80,6 @@
                     </refreshControl>
                     <connections>
                         <outlet property="mapView" destination="FP5-Nq-xYg" id="Jy5-7w-IU8"/>
-                        <outlet property="profileButton" destination="f5u-D3-up2" id="BqW-OH-MP5"/>
                         <segue destination="yEo-hL-nB6" kind="show" identifier="LoginStoryboardSegue" id="kwC-lI-V6K"/>
                         <segue destination="Eol-mm-Mvi" kind="show" identifier="DinerSegue" id="e5H-ou-oj4"/>
                         <segue destination="h5I-Ob-cGp" kind="show" identifier="OperatorSegue" id="eRk-k0-SGy"/>
@@ -89,7 +88,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oim-TT-Tkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="VEM-gW-q4C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="987" y="138"/>
+            <point key="canvasLocation" x="986.95652173913049" y="137.94642857142856"/>
         </scene>
         <!--Profile-->
         <scene sceneID="ue8-kU-L6B">
@@ -103,36 +102,30 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNy-lw-LSx">
-                                    <rect key="frame" x="8" y="96" width="42" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNy-lw-LSx">
+                                    <rect key="frame" x="186" y="96" width="42" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a little about yourself:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bB-V0-h2Z">
-                                    <rect key="frame" x="101" y="0.0" width="200" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="79x-ev-iLG">
-                                    <rect key="frame" x="8" y="8" width="85" height="85"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="79x-ev-iLG">
+                                    <rect key="frame" x="164.5" y="8" width="85" height="85"/>
                                     <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="86" id="4DX-fP-JMm"/>
+                                        <constraint firstAttribute="width" constant="85" id="psQ-kJ-aM0"/>
+                                    </constraints>
                                 </imageView>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dno-Gg-Dxo">
-                                    <rect key="frame" x="101" y="23" width="190" height="94"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="bNy-lw-LSx" secondAttribute="bottom" constant="8" id="2qx-go-cJp"/>
+                                <constraint firstItem="bNy-lw-LSx" firstAttribute="top" secondItem="79x-ev-iLG" secondAttribute="bottom" constant="2.5" id="bK2-0N-AR7"/>
+                                <constraint firstItem="bNy-lw-LSx" firstAttribute="leading" secondItem="WCc-Kn-ZNk" secondAttribute="leading" constant="186" id="dXw-4x-zjb"/>
+                                <constraint firstItem="79x-ev-iLG" firstAttribute="centerX" secondItem="WCc-Kn-ZNk" secondAttribute="centerX" id="diH-HA-zet"/>
+                                <constraint firstItem="bNy-lw-LSx" firstAttribute="centerX" secondItem="WCc-Kn-ZNk" secondAttribute="centerX" id="fBa-ZG-eJN"/>
+                                <constraint firstAttribute="trailing" secondItem="bNy-lw-LSx" secondAttribute="trailing" constant="186" id="xMa-Ki-2bR"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="flS-Iz-3fY">
@@ -160,7 +153,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="iQE-et-pYL"/>
                     <connections>
-                        <outlet property="nameProfileDescription" destination="Dno-Gg-Dxo" id="UCG-pz-o0s"/>
                         <outlet property="userNameLabel" destination="bNy-lw-LSx" id="JBI-aN-q7R"/>
                         <outlet property="userProfilePicture" destination="79x-ev-iLG" id="w9Z-kA-p8h"/>
                     </connections>
@@ -256,7 +248,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5b1-5E-r8j"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create a Truck" id="X88-7b-Jg8"/>
+                    <navigationItem key="navigationItem" title="Create a Truck" id="X88-7b-Jg8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="82J-92-unX"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="addCuisine" destination="e70-PE-hIl" id="IbG-pY-AyY"/>
                         <outlet property="setTruckImage" destination="Dki-4Q-jyW" id="mXL-pZ-Dhv"/>
@@ -290,36 +284,30 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BAL-W0-Oiu">
-                                    <rect key="frame" x="23" y="0.0" width="85" height="85"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BAL-W0-Oiu">
+                                    <rect key="frame" x="164.5" y="8" width="85" height="85"/>
                                     <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="86" id="4iD-uS-t7s"/>
+                                        <constraint firstAttribute="width" constant="85" id="nv5-sS-QYU"/>
+                                    </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5E-OJ-dZo">
-                                    <rect key="frame" x="23" y="96" width="42" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0bi-Y9-seF">
-                                    <rect key="frame" x="116" y="23" width="190" height="94"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a little about yourself:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dya-P1-vbX">
-                                    <rect key="frame" x="116" y="-1" width="200" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5E-OJ-dZo">
+                                    <rect key="frame" x="186" y="96" width="42" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="z5E-OJ-dZo" firstAttribute="top" secondItem="BAL-W0-Oiu" secondAttribute="bottom" constant="2.5" id="AfT-0b-kE5"/>
+                                <constraint firstItem="BAL-W0-Oiu" firstAttribute="centerX" secondItem="M6f-OV-dQs" secondAttribute="centerX" id="Dd5-Pb-T4T"/>
+                                <constraint firstItem="z5E-OJ-dZo" firstAttribute="leading" secondItem="M6f-OV-dQs" secondAttribute="leading" constant="186" id="Jyo-Rx-WD3"/>
+                                <constraint firstAttribute="trailing" secondItem="z5E-OJ-dZo" secondAttribute="trailing" constant="186" id="VJH-zy-RRr"/>
+                                <constraint firstItem="z5E-OJ-dZo" firstAttribute="centerX" secondItem="M6f-OV-dQs" secondAttribute="centerX" id="vRd-ug-A5Q"/>
+                                <constraint firstAttribute="bottom" secondItem="z5E-OJ-dZo" secondAttribute="bottom" constant="8" id="yE0-HI-dEF"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="truckCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SDN-LN-gJb">
@@ -354,7 +342,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="truckNameLabel" destination="z5E-OJ-dZo" id="hOv-TE-aH4"/>
-                        <outlet property="truckProfileDescription" destination="0bi-Y9-seF" id="eow-wH-Dze"/>
                         <outlet property="truckProfilePicture" destination="BAL-W0-Oiu" id="YBm-Ej-xCD"/>
                     </connections>
                 </tableViewController>
@@ -367,9 +354,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EeD-Ck-omF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xeR-XN-0z1">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="xeR-XN-0z1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -382,7 +371,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eRk-k0-SGy"/>
+        <segue reference="GIS-Ph-gjn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="car" catalog="system" width="128" height="93"/>

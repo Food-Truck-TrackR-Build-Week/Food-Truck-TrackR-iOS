@@ -14,7 +14,7 @@ class TruckRatingViewController: UIViewController {
     @IBOutlet weak var truckNameLabel: UILabel!
     @IBOutlet weak var truckImage: UIImageView!
     
-    var networkController: NetworkingController?
+    var networkController = NetworkingController.shared
     
     var truck: TruckRepresentation? {
         didSet {
@@ -44,6 +44,7 @@ class TruckRatingViewController: UIViewController {
         truckNameLabel.text = "\(truck.name)"
         
         //updateImage()
+        truckImage.image = UIImage(named: "https://firebasestorage.googleapis.com/v0/b/food-truck-tracker-a58d5.appspot.com/o/images%2F1C6B0AC0-0DFD-484B-9CDB-0BCB6A4F78FE?alt=media&token=31083c1d-a352-46b4-b493-bbb38c97da4e")
         
         
     }

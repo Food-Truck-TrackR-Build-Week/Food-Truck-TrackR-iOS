@@ -14,6 +14,16 @@ enum UserType: String {
 }
 class ChooseUserTypeViewController: UIViewController {
     
+    //MARK: - IBOutlets
+    @IBOutlet weak var operatorButton: UIButton!
+    @IBOutlet weak var customerButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        operatorButton.layer.cornerRadius = 15
+        customerButton.layer.cornerRadius = 15
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let loginVC = segue.destination as! LogInViewController
         
@@ -35,6 +45,10 @@ extension ChooseUserTypeViewController: UIAdaptivePresentationControllerDelegate
         let alert = UIAlertController(title: "Please sign in or create an account", message: "In order to use this app, you must either create an account, or sign in to an existing one", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
+    }
+    
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("some random stuff")
     }
     
 }

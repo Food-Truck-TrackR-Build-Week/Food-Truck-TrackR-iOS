@@ -34,6 +34,7 @@ enum NetworkingError: Error {
 class NetworkingController {
     
     //MARK: - Properties
+    static let shared = NetworkingController()
     
     let baseUrl = URL(string: "https://food-truck-trackr-api.herokuapp.com")!
     var token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxMDAwMDUsInVzZXJuYW1lIjoibWlndWVsaXRvN0BnbWFpbC5jb20iLCJpYXQiOjE1OTg3MjI5MzUsImV4cCI6MTU5ODgwOTMzNX0.E8Ih5mWe5CoszPF5OclFqqUwe2mBzdSRzOVJVAQOePI"

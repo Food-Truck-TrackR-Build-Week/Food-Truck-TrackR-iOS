@@ -12,15 +12,16 @@ class ProfileTableViewController: UITableViewController {
     
     let networkController = NetworkingController()
     
-   // MARK - Properties
+    // MARK - Properties
     
-    var userType: UserType? {
-        didSet {
-            print("user type has been set to: \(userType!.rawValue)")
-        }
-    }
+    //    var userType: UserType? {
+    //        didSet {
+    //            print("user type has been set to: \(userType!.rawValue)")
+    //        }
+    //    }
     
     var diner: Diner?
+    var allTrucks: [TruckRepresentation] = []
     var truck: TruckRepresentation?
     
     // Mark - Outlets
@@ -29,11 +30,11 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var userProfilePicture: UIImageView!
     @IBOutlet weak var truckNameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var truckProfileDescription: UITextView!
-    @IBOutlet weak var nameProfileDescription: UITextView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
     }
     
     // MARK: - Table view data source
@@ -45,64 +46,47 @@ class ProfileTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return diner?.favoriteTrucks.count ?? 0
+        return allTrucks.count
+        //dinerfavoriteTrucks.count ?? 0
     }
     
-//     func prepare(for segue: UIStoryboardSegue, sender: UIBarButtonItem?) {
-//         let vc = segue.destination as! ProfileTableViewController
-//
-//               if segue.identifier ==  "OperatorSegue" {
-//                   vc.userType = .operator
-//
-//               } else if segue.identifier == "DinerSegue" {
-//                   vc.userType = .diner
-//
-//               }
-//    }
+    //     func prepare(for segue: UIStoryboardSegue, sender: UIBarButtonItem?) {
+    //         let vc = segue.destination as! ProfileTableViewController
+    //
+    //               if segue.identifier ==  "OperatorSegue" {
+    //                   vc.userType = .operator
+    //
+    //               } else if segue.identifier == "DinerSegue" {
+    //                   vc.userType = .diner
+    //
+    //               }
+    //    }
     
     
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "truckCell", for: indexPath)
-
-            cell.textLabel?.text = diner?.favoriteTrucks[indexPath.row].name
-            return cell
-        }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "truckCell", for: indexPath)
+        
+        let trucks = allTrucks[indexPath.row]
+        
+        let truckName = "Name- \(trucks.name) Type- \(trucks.cuisineType)"
+        cell.textLabel?.text = truckName
+        
+        return cell
+    }
     
+    private func updateViews() {
+        
+     //   guard let diner = diner, let truck = truck else {return}
+        
+        //Labels
+        truckNameLabel.text = truck?.name
+      //  userNameLabel.text = "John Doe"
+            //diner?.username
+      //  nameProfileDescription.text =
+        
+        
+    }
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
     
     /*
      // MARK: - Navigation
@@ -116,36 +100,3 @@ class ProfileTableViewController: UITableViewController {
     
 }
 
-
-//extension ProfileTableViewController {
-//
-//    // MARK: - Properties
-//    var diner: Diner?
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//    }
-//
-//    // MARK: - Table view data source
-////    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-////        return diner?.favoriteTrucks.count ?? 0
-////    }
-//
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteTruckCell", for: indexPath)
-//
-//       cell.textLabel?.text = diner?.favoriteTrucks[indexPath.row].name
-//        return cell
-//    }
-//
-//
-//
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-////            diner?.favoriteTrucks.remove(at: indexPath.row)
-//        }
-//    }
-//}
