@@ -24,39 +24,6 @@ class customPin: NSObject, MKAnnotation {
 }
 
 class MapTableViewController: UITableViewController, MKMapViewDelegate {
-    
-
-    @IBAction func refresh(_ sender: Any) {
-        networkController.getAllTrucks { (result) in
-            
-            do {
-                self.trucks = try result.get()
-                print("All trucks were retrieved")
-            } catch {
-                switch error as! NetworkingError {
-                    
-               case .noAuth:
-                    NSLog("Error: No bearer token exists.")
-                case .badAuth:
-                    NSLog("Error: Bearer token invalid.")
-                case .noData:
-                    NSLog("Error: The response had no data.")
-                case .badData:
-                    NSLog("Error: Corrupt data files.")
-                case .decodingError:
-                    NSLog("Error: The data could not be decoded.")
-                case .encodingError:
-                    NSLog("Error: The data could not be encoded.")
-                default:
-                    NSLog("ERROR: This error should not be reached")
-                }
-            }
-            
-            DispatchQueue.main.async {
-                self.refreshControl?.endRefreshing()
-            }
-        }
-    }
 
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
@@ -69,6 +36,8 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
     }
     let networkController = NetworkingController()
     var userIsLoggedIn: Bool = false
+    
+    //MARK: - IBActions and Methods -
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -129,6 +98,10 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    @objc func reloadTableView() {
+        tableView.reloadData()
+    }
+    
     func mapView(_ mapview: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else { return nil }
         
@@ -136,6 +109,38 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
         annotationView.image = UIImage(named: "Pin -cheap")
         annotationView.canShowCallout = true
         return annotationView
+    }
+    
+    @IBAction func refresh(_ sender: Any) {
+        networkController.getAllTrucks { (result) in
+            
+            do {
+                self.trucks = try result.get()
+                print("All trucks were retrieved")
+            } catch {
+                switch error as! NetworkingError {
+                    
+               case .noAuth:
+                    NSLog("Error: No bearer token exists.")
+                case .badAuth:
+                    NSLog("Error: Bearer token invalid.")
+                case .noData:
+                    NSLog("Error: The response had no data.")
+                case .badData:
+                    NSLog("Error: Corrupt data files.")
+                case .decodingError:
+                    NSLog("Error: The data could not be decoded.")
+                case .encodingError:
+                    NSLog("Error: The data could not be encoded.")
+                default:
+                    NSLog("ERROR: This error should not be reached")
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.refreshControl?.endRefreshing()
+            }
+        }
     }
     
     // MARK: - Table view data source
@@ -256,6 +261,7 @@ class MapTableViewController: UITableViewController, MKMapViewDelegate {
             let navVC = segue.destination as! UINavigationController
             let modalVC = navVC.topViewController as! ChooseUserTypeViewController
             navVC.presentationController?.delegate = modalVC
+            navVC.delegate = self
             modalVC.isModalInPresentation = true
             
         }
@@ -278,4 +284,12 @@ extension MapTableViewController: CLLocationManagerDelegate {
     }
 }
 
+extension MapTableViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("")
+    }
+}
 
+extension MapTableViewController: UINavigationControllerDelegate {
+    
+}

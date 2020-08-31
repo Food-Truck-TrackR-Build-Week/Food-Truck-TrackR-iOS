@@ -22,12 +22,19 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var createAccountButton: UIButton!
+    
     
     //MARK: - IBActions and Methods -
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboard()
+        signInButton.layer.cornerRadius = 15
+        createAccountButton.layer.cornerRadius = 15
+        createAccountButton.layer.borderColor = UIColor.orange.cgColor
+        createAccountButton.layer.borderWidth = 3
     }
     
     func setupKeyboard() {
@@ -76,6 +83,8 @@ class LogInViewController: UIViewController {
         if username == "secret" && password == "login" {
             print("Sshhhh come in but keep quiet, This is the secret login")
             dismiss(animated: true, completion: nil)
+            NotificationCenter.default.post(name: .reloadMapTableView, object: networkController)
+            return
         }
         
         switch userType {
@@ -160,6 +169,8 @@ class LogInViewController: UIViewController {
         case .none:
             print("If you're seeing this, it means that something went wrong in the ChooseUserTypeViewController, and that the userType was not identified or passed")
         }
+        print("sign in successful")
+        NotificationCenter.default.post(name: .reloadMapTableView, object: networkController)
     }
     
     //Navigation
