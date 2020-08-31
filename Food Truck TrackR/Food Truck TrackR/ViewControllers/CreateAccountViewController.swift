@@ -19,10 +19,9 @@ class CreateAccountViewController: UIViewController {
     }
     let networkController = NetworkingController()
     
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var createAccountButton: UIButton!
     @IBOutlet weak var passwordConfirmationTextField: UITextField!
     
     //MARK: - Methods and IBActions -
@@ -33,11 +32,10 @@ class CreateAccountViewController: UIViewController {
     }
     
     func setupKeyboard() {
-        firstNameTextField.addDoneButtonOnKeyboard()
-        lastNameTextField.addDoneButtonOnKeyboard()
         emailTextField.addDoneButtonOnKeyboard()
         passwordTextField.addDoneButtonOnKeyboard()
         passwordConfirmationTextField.addDoneButtonOnKeyboard()
+        createAccountButton.layer.cornerRadius = 15
     }
     
     func presentBlankTextFieldsErrorAlert() {

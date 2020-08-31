@@ -14,6 +14,16 @@ enum UserType: String {
 }
 class ChooseUserTypeViewController: UIViewController {
     
+    //MARK: - IBOutlets
+    @IBOutlet weak var operatorButton: UIButton!
+    @IBOutlet weak var customerButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        operatorButton.layer.cornerRadius = 15
+        customerButton.layer.cornerRadius = 15
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let loginVC = segue.destination as! LogInViewController
         
