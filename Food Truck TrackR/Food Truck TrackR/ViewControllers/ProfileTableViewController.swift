@@ -24,6 +24,7 @@ class ProfileTableViewController: UITableViewController {
     
     var diner: Diner?
     var allTrucks: [TruckRepresentation] = []
+    
     var truck: TruckRepresentation?
     
     var userType: UserType? {
@@ -39,10 +40,10 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var truckNameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  updateViews()
+        updateViews()
         tableView.reloadData()
     }
     
@@ -85,7 +86,7 @@ class ProfileTableViewController: UITableViewController {
         
         //Labels
        // truckNameLabel.text = truck?.name
-        truckNameLabel.text = truck?.name
+     //   truckNameLabel.text = truck?.name
             //diner?.username
       //  nameProfileDescription.text =
         

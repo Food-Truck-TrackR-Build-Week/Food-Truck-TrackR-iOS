@@ -18,6 +18,9 @@ class CreateTruckViewController: UIViewController {
         
          if truckName.text?.isEmpty ?? true {
                print("Empty")
+            let alert = UIAlertController(title: title, message: "No Truck Created", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+                        present(alert, animated: true)
            } else {
                 print("Created new Truck")
                 let alert = UIAlertController(title: title, message: "You created a new truck", preferredStyle: .alert)
@@ -25,7 +28,7 @@ class CreateTruckViewController: UIViewController {
                 present(alert, animated: true)
                
           //  saveButton()
-            performSegue(withIdentifier: "ProfileOperator", sender: self)
+         //   performSegue(withIdentifier: "ProfileOperator", sender: self)
            }
         
     }
