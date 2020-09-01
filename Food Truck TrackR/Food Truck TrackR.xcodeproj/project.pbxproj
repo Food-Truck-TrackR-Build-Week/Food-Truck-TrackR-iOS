@@ -44,6 +44,7 @@
 		AF23C7DA24EE05A00081B805 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF23C7D824EE05A00081B805 /* LaunchScreen.storyboard */; };
 		AF23C7E724EE10B60081B805 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7E624EE10B60081B805 /* LogInViewController.swift */; };
 		AF23C7EB24EE10EB0081B805 /* TruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */; };
+		AF8F973924FDFD05009088A4 /* Food_Truck_TrackRUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8F973824FDFD05009088A4 /* Food_Truck_TrackRUnitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		AF23C7DB24EE05A00081B805 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF23C7E624EE10B60081B805 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		AF23C7EA24EE10EB0081B805 /* TruckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckDetailViewController.swift; sourceTree = "<group>"; };
+		AF8F973824FDFD05009088A4 /* Food_Truck_TrackRUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food_Truck_TrackRUnitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				AF23C7C924EE059E0081B805 /* Food Truck TrackR */,
 				68C3819324FD956C000C8840 /* Food Truck TrackRUITests */,
+				AF8F973724FDFD05009088A4 /* FoodTruckTrackRUnitTests */,
 				AF23C7C824EE059E0081B805 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -252,6 +255,14 @@
 				68852DF924EF6F09004DAC26 /* TruckRatingVC.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		AF8F973724FDFD05009088A4 /* FoodTruckTrackRUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				AF8F973824FDFD05009088A4 /* Food_Truck_TrackRUnitTests.swift */,
+			);
+			path = FoodTruckTrackRUnitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +391,7 @@
 				446EA16A24FC8ED1005B073B /* ProfileTableViewController.swift in Sources */,
 				4C6030F324F787EB0069D008 /* CreateAccountViewController.swift in Sources */,
 				AF23C7CB24EE059E0081B805 /* AppDelegate.swift in Sources */,
+				AF8F973924FDFD05009088A4 /* Food_Truck_TrackRUnitTests.swift in Sources */,
 				4C6030EF24F786160069D008 /* TruckRepresentation.swift in Sources */,
 				4459683B24EF684200AA9C9B /* CoreDataStack.swift in Sources */,
 				AF23C7CD24EE059E0081B805 /* SceneDelegate.swift in Sources */,

@@ -892,7 +892,7 @@ class NetworkingController {
     }
     
     //adds (or replaces) a customerRating for the truck with the given truckId associated with the diner with the given dinerId
-    func addCustomerRating(for truckID: Int, with dinerID: Int, customerRating: Double, completion: @escaping (Result<Double, NetworkingError>) -> Void) {
+    func addCustomerRating(for truckID: Int, with dinerID: Int, customerRating: Int, completion: @escaping (Result<Double, NetworkingError>) -> Void) {
         let reqEndpoint = "/api/trucks/:\(truckID)/customerRatings/:\(dinerID)"
         let url = baseUrl.appendingPathComponent(reqEndpoint)
         

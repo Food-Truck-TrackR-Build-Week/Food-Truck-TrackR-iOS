@@ -64,6 +64,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ratingValueStars" destination="99i-Np-nZm" id="uIH-Yu-QA2"/>
                         <outlet property="truckImage" destination="xfb-3O-yVN" id="9yh-M5-9Ed"/>
                         <outlet property="truckNameLabel" destination="zju-47-85E" id="ceL-z3-UCr"/>
                     </connections>
